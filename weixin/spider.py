@@ -96,6 +96,38 @@ def parse_index(html):
 	for item in items:
 		yield item.attr('href')
 
+# 抓取详情页
+def get_detail(url):
+	try:
+		response=requests.get(url)
+		if response.status_code==200:
+			return response.text
+		return None
+	except ConnectionError:
+		return None
+
+# 解析详情页
+def parse_detail(url):
+	doc = pq(html)
+	title= doc('.rich_media_title').text()
+	content=doc('.rich_media_content ').text
+	date=doc('#publish_time').text()
+	nickname =doc('.rich_media_meta_list .rich_media_meta_nickname')
+	wechat = doc('#profileBt').text()
+	return {
+		'title':title,
+		'content':content,
+		'date':date,
+		'nickname':nickname,
+		'wechat':wechat
+	}
+	try:
+		response=requests.get(url)
+		if response.status_code==200:
+			return response.text
+		return None
+	except ConnectionError:
+		return None
 
 def main():
 	for page in range(1,101):
@@ -103,7 +135,11 @@ def main():
 		if html:
 			article_urls=parse_index(html)
 			for article_url in article_urls:
-				print(article_url)
+				article_html=get_detail(article_url)
+				if article_html:
+					article_date=parse_detail(article_html)
+					print(article_date)
+
 
 
 if __name__ == '__main__':
