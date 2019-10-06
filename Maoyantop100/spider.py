@@ -7,7 +7,7 @@
 # Description :
 # ----------------------------------
 '''
-爬取猫眼网TOP100，url：http://maoyan.com/board/4
+使用requests爬取猫眼网TOP100，url：http://maoyan.com/board/4
 使用requests爬取网页，正则表达式提取网页。
 
 爬取猫眼top100的电影榜单步骤：
