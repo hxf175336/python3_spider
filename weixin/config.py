@@ -4,7 +4,7 @@
 # @Author  : hxf
 # @Email   : 1870212598@qq.com
 # @File    : config.py
-# Description :
+# Description :配置文章
 # ----------------------------------
 
 # 设置全局变量
