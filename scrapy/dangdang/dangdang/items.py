@@ -9,6 +9,8 @@ import scrapy
 
 
 class DangdangItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+	# define the fields for your item here like:
+	# name = scrapy.Field()
+	title = scrapy.Field() # 标题
+	link = scrapy.Field()  # 链接
+	comment = scrapy.Field()  # 评论
