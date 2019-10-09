@@ -52,20 +52,21 @@ import re
 # rst=re.search(pat,string)
 # print(rst)
 #
-# #元字符
-# '''
-# . 除换行外任意一个字符
-# ^ 开始位置
-# $ 结束位置
-# * 0\1\多次
-# ? 0\1次
-# + 1\多次
-# {n} 恰好n次
-# {n,} 至少n次
-# {n,m} 至少n，至多m次
-# | 模式选择符或
-# () 模式单元
-# '''
+# #
+'''
+5、元字符
+	. 除换行外任意一个字符
+	^ 开始位置
+	$ 结束位置
+	* 0\1\多次
+	? 0\1次
+	+ 1\多次
+	{n} 恰好n次
+	{n,} 至少n次
+	{n,m} 至少n，至多m次
+	| 模式选择符或
+	() 模式单元
+'''
 # string='''taoyunnnnji87362387aoyubaidu'''
 # pat="tao..."
 # pat="^ao..."
@@ -77,20 +78,24 @@ import re
 # rst=re.search(pat,string)
 # print(rst)
 #
-# #模式修正符
-# '''
-# I 匹配时忽略大小写*
-# M 多行匹配*
-# L 本地化识别匹配
-# U unicode
-# S 让.匹配包括换行符*
-# '''
+'''
+6、模式修正符
+	I 匹配时忽略大小写*
+	M 多行匹配*
+	L 本地化识别匹配
+	U unicode
+	S 让.匹配包括换行符*
+'''
 # string="Python"
 # pat="pyt"
 # rst=re.search(pat,string,re.I)
 # print(rst)
 #
-# #贪婪模式与懒惰模式
+'''
+7、贪婪模式与懒惰模式
+	贪婪模式的核心是尽可能多的匹配
+	懒惰模式的核心是尽可能少的匹配
+'''
 # string="poythonyhjskjsa"
 # pat1="p.*y"#贪婪模式
 # pat2="p.*?y"#懒惰模式，精准
@@ -99,12 +104,17 @@ import re
 # print(rst)
 # print(rst2)
 #
-# #正则表达式函数
-# #1、match
-# string="poythonyhjskjsa"
-# pat="p.*?y"#懒惰模式，精准
-# rst=re.match(pat,string,re.I)
-# print(rst)
+'''
+8、正则表达式函数
+	1、match
+	2、search 
+	3、全局匹配函数 compile findall
+'''
+#1、match
+string="poythonyhjskjsa"
+pat="p.*?y"#懒惰模式，精准
+rst=re.match(pat,string,re.I)
+print(rst)
 # #2、search 已讲
 # #3、全局匹配函数
 # string="hgpoythpnyhjsptjhgjykjsa"
