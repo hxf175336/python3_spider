@@ -56,7 +56,7 @@ import re
 '''
 5、元字符
 	. 除换行外任意一个字符
-	^ 开始位置
+	^ 开始位置 非
 	$ 结束位置
 	* 0\1\多次
 	? 0\1次
@@ -111,19 +111,19 @@ import re
 	3、全局匹配函数 compile findall
 '''
 #1、match
-string="poythonyhjskjsa"
-pat="p.*?y"#懒惰模式，精准
-rst=re.match(pat,string,re.I)
-print(rst)
+# string="poythonyhjskjsa"
+# pat="p.*?y"#懒惰模式，精准
+# rst=re.match(pat,string,re.I)
+# print(rst)
 # #2、search 已讲
-# #3、全局匹配函数
+#3、全局匹配函数
 # string="hgpoythpnyhjsptjhgjykjsa"
 # pat="p.*?y"#懒惰模式，精准
 # #全局匹配格式re.compile(正则表达式).findall(数据)
 # rst=re.compile(pat).findall(string)
 # print(rst)
 #
-# #实例：匹配.com和.cn网址
+#实例：匹配.com和.cn网址
 # string="<a href='ftp://www.iqianyue.com'>百度首页</a>'"
 # pat="[a-zA-Z]+://[^\s]*[.com|.cn]"
 # rst=re.compile(pat).findall(string)
@@ -136,17 +136,18 @@ print(rst)
 #
 #
 #
-# #简单爬虫的编写
+#简单爬虫的编写
 # import urllib.request
 # data=urllib.request.urlopen("http://edu.csdn.net").read()
+# print(data)
 #
-# #自动提取课程页面的QQ群
-# import urllib.request
-# import re
-# data=urllib.request.urlopen("http://edu.csdn.net/huiyiCourse/detail/253").read().decode("utf-8")
-# pat="<em>QQ:(\d*?)</em>"
-# rst=re.compile(pat).findall(data)
-# print(rst[0])
+#自动提取课程页面的QQ群
+import urllib.request
+import re
+data=urllib.request.urlopen("https://edu.csdn.net/huiyiCourse/detail/253").read().decode("utf-8")
+pat="<p>(\d*?)</p>"
+rst=re.compile(pat).findall(data)
+print(rst)
 
 
 
