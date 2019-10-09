@@ -3,7 +3,7 @@
 # @Time    : 2019/10/9 8:07
 # @Author  : hxf
 # @Email   : 1870212598@qq.com
-# @File    : chengfakoujue.py
+# @File    : 04_0_chengfakoujue.py
 # Description :
 # ----------------------------------
 '''
@@ -11,10 +11,10 @@
 '''
 
 '''
-乘法口诀
+乘法口诀逆向输出
 	end="" 代表不换行输出
 '''
-for i in range(1,10):
-	for j in range(1,i+1):
+for i in range(9,0,-1):
+	for j in range(i,0,-1):
 		print(str(i)+"*"+str(j)+"="+str(i*j),end=" ")
 	print()# 换行
