@@ -26,7 +26,7 @@ a=cl1()
 #构造函数（构造方法）
 #self:在类中的方法必须加上self参数
 #__init__(self,参数)
-#构造函数实际意义：初始化
+#构造函数的实际意义：初始化
 class cl2:
     def __init__(self):
         print("I am cl2 self!")
