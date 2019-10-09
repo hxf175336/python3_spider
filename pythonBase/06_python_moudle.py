@@ -18,5 +18,4 @@ python的基本语法知识
 		whl下载安装方式
 		直接复制的方式
 		anaconda
-
 '''
