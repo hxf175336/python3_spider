@@ -49,11 +49,11 @@ except urllib.error.HTTPError as e:
 import urllib.request
 url="http://blog.csdn.net"
 #头文件格式header=("User-Agent",具体用户代理值)
-headers=("User-Agent","Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Mobile Safari/537.36")
-opener=urllib.request.build_opener()
-opener.addheaders=[headers]
-data=opener.open(url).read()
-fh=open("ua.html","wb")
+# headers=("User-Agent","Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Mobile Safari/537.36")
+# opener=urllib.request.build_opener()
+# opener.addheaders=[headers]
+data=urllib.request.urlopen(url).read()
+fh=open("data\\ua.html","wb")
 fh.write(data)
 fh.close()
 
