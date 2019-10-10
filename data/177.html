@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="yangyin" content="author">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <!--meta(name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no")-->
+    <title>HUAWEI Developer Day 北京站-CSDN活动</title>
+    <meta name="Keywords" content="HUAWEI Developer Day 北京站,业界技术会议,html5,应用内支付,首席架构师,第三方应用,产品经理,项目经理,移动办公">
+    <meta name="Description" content="HUAWEI Developer Day 北京站,业界技术会议-CSDN活动">
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://csdnimg.cn/cdn/font-awesome-4.4.0/css/font-awesome.min.css " type="text/css">
+    <link rel="stylesheet" href="https://csdnimg.cn/release/bss/fe/e667c42/static/css/meeting/iconfont.css">
+    <link rel="stylesheet" href="https://csdnimg.cn/release/bss/fe/e667c42/static/css/meeting/common.css">
+    <link rel="stylesheet" href="https://csdnimg.cn/release/bss/fe/e667c42/static/css/meeting/bss_headerTop.css">
+    <script type="text/javascript" src="https://csdnimg.cn/release/bss/fe/e667c42/static/min/zepto.min.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/bss/fe/e667c42/static/js/meeting/lib/fx.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/bss/fe/e667c42/static/js/meeting/lib/touch.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/cdn/201502/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/cdn/201502/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/bss/fe/e667c42/static/js/meeting/lib/jquery.transit.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+            <script>
+var CONFIG_BSS_URLS = {
+    "static_url":"https://csdnimg.cn/release/bss/fe/e667c42",
+    "ajax_url":"https://huiyi.csdn.net/"
+};
+</script>
+</head>
+<body>
+<script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://huiyi.csdn.net/"></script>
+<div class="bss_headerCover"></div>
+<div class="bss_headerBox">
+    <div class="bss_header">
+        <div class="bss_NavPc">
+            <ul>
+                <li  ><a href="https://huiyi.csdn.net/">活动首页</a></li>
+                <!--<li class="navP_active"  ><a href="">CSDN活动</a></li>-->
+                <li  ><a href="https://huiyi.csdn.net/activity/lists">发现活动</a></li>
+                <li class="my_event"><a href="https://huiyi.csdn.net/activity/myorder">我的活动</a></li>
+            </ul>
+        </div>
+        <div class="bss_search">
+                        <form id="searchform"  method="get" action="https://huiyi.csdn.net/activity/lists">
+                <input type="text"  placeholder="搜索活动" value="" name="t">
+                <span>
+                    <i class="iconfont"  onclick="submit_search_tag_form();">&#xe60b;</i>
+                </span>
+            </form>
+        </div>
+        <div class="bss_headerR" style="display:none;">
+            <div class="bss_myAct"><a class="" href="https://huiyi.csdn.net/activity/myorder">我的活动</a><span class="line">|</span><i class="iconfont navIcon">&#xe604;</i></div>
+            <div class="bss_NavMobile">
+                <ul class="bss_NavMobBox row">
+                    <li class=" col-xs-6">
+                        <div class="navM_list"><a href="https://huiyi.csdn.net/"><i class="iconfont">&#xe620;</i><br><span> 首页</span></a></div>
+                    </li>
+                    <!--<li class=" col-xs-6">
+                        <div class="navM_list"><a href=""><i class="iconfont">&#xe61e;</i><br><span> CSDN活动</span></a></div>
+                    </li>-->
+                    <li class=" col-xs-6">
+                        <div class="navM_list"><a href="https://huiyi.csdn.net/activity/lists"><i class="iconfont">&#xe728;</i><br><span> 发现活动 </span></a></div>
+                    </li>
+                    <li class=" col-xs-6">
+                        <div class="navM_list"><a href="https://huiyi.csdn.net/activity/myorder"><i class="iconfont">&#xe76e;</i><br><span> 我的活动</span></a></div>
+                    </li>
+                </ul>
+                <div class="bss_NavM_login">
+                                            <a href="http://passport.csdn.net/account/login"  class="bss_login">登录</a>
+                                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function submit_search_tag_form(){
+        $('#searchform').submit();
+       /* var input_value = $("#searchform").find("input").val();
+        if(input_value){
+            $('#searchform').submit();
+        }*/
+    }
+</script>
+
+    <link rel="stylesheet" href="https://csdnimg.cn/release/bss/fe/e667c42/static/css/meeting/bss_eventTicketInfor.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/bss/fe/e667c42/static/css/meeting/bss_eventDetails.css">
+    <div class="bss_wrap" style="padding-top: 0;"><!--banner 开始-->
+        <div class="bss_wxShareCover"></div>
+        <div class="bss_weixinShare">
+            <div class="weixinShare_pic"><span></span></div>分享给朋友或分享到朋友圈
+            <p>点击右上角，立即分享</p>
+        </div>
+    <div class="bss_evDet_banner"  style="background-image: url('https://img-bss.csdnimg.cn/201910090255313402.jpg');">
+      <img class="bss_evDet_banner_mob" src="https://img-bss.csdnimg.cn/201910090250546437.jpg" style="width: 100%">
+        <div class="evDet_banner pubPadding">
+            <div class="evDet_banner_r">
+                <div class="bdsharebuttonbox">
+
+                    <a href="javascript:;" data-cmd="weixin" title="分享到微信" class="bds_weixin"></a>
+                    <a href="javascript:;" data-cmd="tsina" title="分享到新浪微博" class="bds_tsina"></a>
+                    <b>快给朋友分享吧</b>
+				</div>
+                <a href="javascript:;" class="weixin_share"></a>
+                <script>window._bd_share_config = {
+                        "common": {
+                            "bdSnsKey": {},
+                            "bdText": 'HUAWEI Developer Day 北京站',
+                            "bdMini": "2",
+							"bdDesc" : '',
+							"bdUrl" : '',
+                            "bdMiniList": false,
+                            "bdPic": "https://img-bss.csdnimg.cn/201910090250596541.jpg",
+                            "bdStyle": "0",
+                            "bdSize": "32"
+                        },
+                        "share": {}
+                    };
+
+                    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/release/bss/fe/e667c42/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                    
+                    var browser = {
+                        versions: function () {
+                            var u = navigator.userAgent, app = navigator.appVersion;
+                            return {         //移动终端浏览器版本信息
+                                trident: u.indexOf('Trident') > -1, //IE内核
+                                presto: u.indexOf('Presto') > -1, //opera内核
+                                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                                iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                                iPad: u.indexOf('iPad') > -1, //是否iPad
+                                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                            };
+                        }(),
+                        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+                    }
+                    if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
+                        var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+                        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                            //在微信中打开
+                            $('.weixin_share').on('singleTap',function(){
+                                $('.bss_wxShareCover').show();
+                                $('.bss_weixinShare').show();
+                            })
+                            $('.bss_wxShareCover').on('singleTap',function(){
+                                $(this).hide();
+                                $('.bss_weixinShare').hide();
+                            })
+                        }else{
+                            $('.weixin_share').hide();
+                        }
+                    }
+
+                </script>
+            </div>
+        </div>
+    </div>
+        <!--banner 结束--><!--活动门票信息 开始-->
+        <div class="eventTicket">
+                    <script data-project-id="4352" data-utm-source='' src="https://csdnimg.cn/release/bss/fe/e667c42/js/ticket_list.js"></script>
+                </div>
+    <!-- 活动介绍 开始-->  <!-- 活动日程 开始-->
+        <div class="bss_evDet_eventIntr pubPadding">
+<h3 class="bss_comTit2"><strong><span>活动介绍</span></strong></h3>
+
+<div class="evDet_eventIntr">
+<h3>&nbsp;</h3>
+
+<div class="evIntr_con">
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 当前，通信产业的进步正推动人类进入万物互联的&quot;全连接时代&quot;。开发者应该如何快速搭上热门技术快车？如何快速实现商业变现？</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;HUAWEI Developer Day&mdash;&mdash;一个与广大开发者深度交流的平台，旨在将最新行业动向及华为终端的最新开放能力与服务赋能给互联网开发者，携手为华为亿级终端用户打造极致的智慧体验。HUAWEI Developer Day系列沙龙活动已走过全国10所城市，第11站将再次与北京的开发者相约。</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;本站，华为的多位高级架构师、产品经理除了将为开发者带来AI、AR/VR、AppGallery Connect、快应用等最新开放的能力，解读华为HMS生态战略，探索华为终端分布式能力在移动办公、家庭、运动健康等场景下的业务体验及相关技术实现。还将聚焦华为影像能力、HiResearch平台、主题开发、多语言等全新议题。此外，华为智慧业务部产品经理也将携手合作伙伴，向开发者展示全新的服务体验和流量获取方案。现场更设立展台业务体验，抽奖环节，手机大奖、伴手礼和美味茶点等着开发者的到来。</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;本次活动继续开设晚间Codelabs，开发者可基于华为终端提供的HMS Core、EMUI-HiAI或主题能力，提前或现场按照操作指南完成体验或创新，评委将根据开发者的完成度和创新性颁发证书和评选出本场Codestar。</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;聚焦智慧互联时代前沿技术，打造卓越生态服务。让我们一起&mdash;&mdash;开放生态，定义未来！</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 本次活动采用【人脸识别】功能签到，欢迎点击下方<span style="color:#FF0000;">&ldquo;立即报名&rdquo;</span>，注册为华为开发者联盟会员后免费参与报名（需提供1张本人近期人脸照片或即时自拍）。报名成功后，我们将以邮件和短信的形式通知您报名结果。</p>
+</div>
+</div>
+
+<div class="evDet_eventIntr">
+<div class="evIntr_con">
+<div class="bss_comTit1">活动亮点</div>
+
+<center>全场景、全终端，助力应用、主题<span style="color:#FF0000;">扬帆出海</span></center>
+
+<center>&nbsp;</center>
+
+<center>探索<span span="" style="color:#FF0000;">华为影像能力开放</span>设计思路，共话未来演进路标</center>
+
+<center>&nbsp;</center>
+
+<center>解读HiResearch平台，<span style="color:#FF0000;">加速联合创新</span></center>
+
+<center>&nbsp;</center>
+
+<center>挖掘<span style="color:#FF0000;">AR/VR Engine 2.0</span>交互新特性，占据创新先机</center>
+
+<center>&nbsp;</center>
+
+<center>Codelabs现场创新实践，<span style="color:#FF0000;">Mate 30手机、手环</span>等豪华大礼等你来拿！</center>
+
+<center>&nbsp;</center>
+
+<p style="text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#FF0000;">10月30日</span>让我们一起走进HUAWEI Developer Day北京站，快戳下方的&ldquo;我要报名&rdquo;参与报名吧！</p>
+
+<p style="text-align: center;">&nbsp;</p>
+
+<p style="text-align: center;"><a href="https://developer.huawei.com/consumer/cn/activity/301570526909249096?channel=CSDN" style="text-align: center;" target="_blank"><img alt="#" src="https://img-bss.csdnimg.cn/201907250310167976.jpg" style="width: 136px; height: 31px;" /></a></p>
+</div>
+</div>
+
+<div class="evDet_eventIntr">
+<h3>&nbsp;</h3>
+
+<div class="evIntr_con">
+<div class="bss_comTit1">HUAWEI Developer Day 北京站</div>
+
+<div class="eventSch_tabCon">
+<ul class="evDet_eventSch evDet_eventSchCur">
+	<li>
+	<div class="eventSch_time">13:00-13:30</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>现场签到</h4>
+
+	<p>开发者签到入场</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">13:30-13:35</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>活动开场</h4>
+
+	<p>介绍 HUAWEI Developer Day 系列活动的目的和愿景</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">13:35-13:45</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为开发者联盟-打造卓越生态服务平台</h4>
+
+	<p>华为开发者联盟作为华为终端官方合作伙伴开放平台，依托终端渠道优势、全球化平台服务，及产业链资源，从开发、测试、推广、变现等环节，全方位助力开发者，共同打造卓越生态服务平台。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为开发者联盟高级系统架构师</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">13:45-14:15</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>接入HMS Core-IAP的订阅和订单服务，让变现更简单</h4>
+
+	<p>开发者聚焦应用本身能力，创新应用，接入华为支付服务后无需关心支付环节细节（如：支付渠道、全球化合规等），把复杂的逻辑和繁琐的流程交给IAP。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为应用内支付产品经理</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">14:15-14:25</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为多语言服务助力应用出海</h4>
+
+	<p>介绍华为全球化服务覆盖的范围和优势，以及华为在多语言服务上对第三方应用提供的主要免费功能，帮助出海应用快速检查语言本地化和当地文化匹配程度。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为高级全球化项目经理</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">14:25-14:45</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>全球化、全终端、全场景的快应用</h4>
+
+	<p>快应用作为一种新型免安装应用。不仅具有安卓应用体验好、功能强的优点，还具备HTML5网页自动更新、占用内存少的便捷，经过一年的规范迭代，华为为快应用提供了更丰富的应用场景，更高效的开发方式，助力开发者商业成功。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为应用市场快应用架构师</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">14:45-15:05</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>共建生态，创新未来&mdash;&mdash;AppGallery Connect一站式服务助力开发者商业成功</h4>
+
+	<p>AppGallery Connect是华为应用市场面向应用开发者开放的一站式服务，支撑广大开发者自创意、开发、分发、运营，到分析的应用全生命周期。AppGallery Connect新功能，新服务，有效减低开发成本，提升开发、运营效率，跟开发者共建生态，创新未来，助力商业成功。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为应用市场AppGallery Connect高级运营经理</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">15:05-15:30</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为快服务智慧平台，助力连接华为全场景新生态</h4>
+
+	<p>华为快服务智慧平台（ HUAWEI Ability Gallery ）为开发者提供了服务一次开发接入、全场景多终端智慧分发的解决方案，助力开发者扩大业务触点，提升品牌曝光，增强业务转化。 本次HDD携手合作伙伴，向开发者展示全新的服务体验和流量获取方案。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为智慧业务部高级产品经理</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">15:30-15:50</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为主题&mdash;&mdash;艺术，触手可及</h4>
+
+	<p>华为主题服务于全球2亿+用户，覆盖170+国家和地区，吸引4000+全球优秀设计师及开发者入驻，帮助全球开发者持续进行商业变现，已有数名合作伙伴年收入达到上千万。本次将揭开华为主题设计与开发的神秘面纱，指导开发者快速掌握主题入门开发及高级开发技能，为广大开发者开辟主题领域创业新方向。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为高级产品经理</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">15:50-16:00</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>答疑+抽奖+茶歇</h4>
+
+	<p>&nbsp;</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">16:00-16:30</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>HUAWEI HiAI，有芯有AI，共筑智慧生态</h4>
+
+	<p>HUAWEI HiAI是面向智能终端的AI能力开放平台，基于 &ldquo;芯、端、云&rdquo;三层开放架构，即芯片能力开放、应用能力开放、服务能力开放，构筑全面开放的智慧生态，让开发者能够快速地利用华为强大的AI处理能力，为消费者提供更好的智慧应用体验。<br />
+	HUAWEI HiAI实现了算法的移动化运行，智能眼镜则为视频采集提供了移动化的部署，二者的强强联合，为移动执法提供了一个崭新的平台。精心打造的智能眼镜，在HUAWEI HiAI的高算力，Huawei手机的高存储助力下，为移动执法提供前端高效智能化，大容量运算服务。</p>
+
+	<p>&nbsp;</p>
+
+	<p>HUAWEI HiAI高级产品经理</p>
+
+	<p>北京随闻科技有限公司技术总监 赵晓春</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">16:30-16:50</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为影像能力开放设计思路和未来</h4>
+
+	<p>演讲华为在影像能力开放的设计策略、架构思路、接口设计，讨论未来2-3年演进路标，涵盖高级模式开放、算法能力开放、跨芯片平台开放等。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为终端多媒体软件首席架构师</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">16:50-17:20</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为AR/VR Engine 2.0能力介绍和交互新特性详解</h4>
+
+	<p>快速介绍华为ARVR引擎能力和算法特性和应用案例。详细介绍交互领域发展趋势、华为ARVR交互能力特点、基本调用流程和应用案例。</p>
+
+	<p>&nbsp;</p>
+
+	<p>华为主任工程师 （ARVR交互领域）</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">17:20-17:35</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>HiResearch平台使能研究，加速联合创新</h4>
+
+	<p>HiResearch创新研究平台面向研究机构开放研究APP开发框架，汇聚大规模多源异构的研究数据，连接华为研究团队与专业机构，构建优势互补、合作共赢的研究生态，帮助第三方研究机构快速孵化创新应用和解决方案。</p>
+
+	<p>&nbsp;</p>
+
+	<p>HiResearch平台 高级项目经理&nbsp;</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">17:35-17:55</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>华为终端分布式能力介绍</h4>
+
+	<p>如今，丰富的智能设备不断涌现，如何叠加不同设备各自的优势，让消费者获取到前所未有的全场景智慧生活体验？分布式技术和能力正是因此而产生，助力消费者获得跨设备的分布式体验。华为将对外开放这些能力，加速消费者全场景智慧化生活的到来。本次交流将分享基于华为终端分布式能力在移动办公、家庭、运动健康等场景下的业务体验及相关技术实现。</p>
+
+	<p>&nbsp;</p>
+
+	<p>开发者能力发展项目经理</p>
+	</div>
+	</div>
+	</li>
+	<li>
+	<div class="eventSch_time">17:55-18:00</div>
+
+	<div class="eventSch_con">
+	<div class="eventSch_conBox">
+	<h4>答疑+抽奖</h4>
+
+	<p>答疑后抽奖</p>
+	</div>
+	</div>
+	</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    <!-- 讲师介绍 开始-->
+    <div class="bss_evDet_lectIntr pubPadding">
+                <div class="bss_comTit1">讲师介绍</div>
+        <div class="evDet_lectIntr">
+            <ul class="row">
+                                <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080607105791.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为开发者联盟高级系统架构师  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">华为开发者联盟高级系统架构师，负责开发者联盟的产品架构、技术方案。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080606479445.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为应用内支付产品经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">华为应用内支付产品经理。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080606298378.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为高级全球化项目经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">华为公司高级全球化项目经理，多年本地化和全球化项目经验，擅长运作的项目内容包含：海外全球化特性项目、海外语言拓展项目、多语言用户运营项目、多语言服务能力开放项目。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080605576422.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为应用市场快应用架构师  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">10年以上android客户端软件经验。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080605355809.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为应用市场AppGallery Connect高级运营经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">华为应用市场AppGallery Connect运营，负责AGC服务的用户运营，产品运营，活动运营等相关运营工作。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080605126731.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为智慧业务部高级产品经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">快服务智慧平台产品经理，多年企业平台产品、智能客服等领域经验，喜欢研究现象本质，抽象复杂业务。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080604484251.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为高级产品经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">华为主题高级产品经理，负责华为主题面向设计师/开发者产品的规划、设计及运营，多年产品需求调研及设计经验，擅长洞察用户需求的深层次原因，并进行抽象设计。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080604188945.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>HUAWEI HiAI高级产品经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">王晓文,负责Huawei HiAI能力开放与生态运营。通过“开放，合作，共赢”让华为端，芯，云的HiAI能力更好的联接到开发者和合作伙伴，提供技术合作全方位支持，助力合作伙伴开拓创新，共创AI技术生态的未来，共促AI生态繁荣。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080603534983.png" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>赵晓春</h4>
+
+                                <p>北京随闻科技有限公司技术总监  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">赵晓春，北京随闻科技公司联合创始人，技术总监，多年从事行业类及消费类产品设计开发工作。从随闻公司创立之日起，一直致力于人工智能与不同行业、不同产业有效结合，打造人人享智能，事事享智能的优质服务体验。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080603202609.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为终端多媒体软件首席架构师  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">华为终端软件多媒体首席架构师，手机多媒体软件的技术团队负责人，服务华为12年，始终专注于华为手机系统和多媒体软件的设计工作。目前负责华为鸿蒙OS多媒体架构和生态开放的设计工作，提供多媒体分布式架构能力，拓展多媒体能力跨设备全场景支持，为三方应用提供生态基础。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080602577733.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>华为主任工程师 （ARVR交互领域）  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">ARVR老兵一枚，2009年加入华为公司，2013年参与华为首代VR样机的预研工作并在该领域工作至今，目前负责华为VRAR交互技术领域的算法研发和技术规划。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080602278858.png" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4> </h4>
+
+                                <p>HiResearch平台 高级项目经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">2008年加入华为，先后从事过终端平台、中间件和aPaaS平台、大数据工具集等产品的研发工作，现在负责消费者业务HiResearch平台外部使能工作。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                       <li class="col-xs-6 col-sm-4">
+                    <div class="lectIntr_list"><img src="https://img-bss.csdnimg.cn/201910080601559587.jpg" class="lectIntrL_pic">
+                        <div class="lectIntrL_con">
+                            <div class="lectIntrL_name"><h4>&nbsp;</h4>
+
+                                <p>开发者能力发展项目经理  </p></div>
+                            <div class="lectIntrL_speciality"><h4>擅长领域：</h4>
+
+                                <p class="container">负责华为终端分布式能力面向开发者的推广，帮助开发者借助华为终端的开放能力开发创新的产品和应用。</p></div>
+                        </div>
+                    </div>
+                </li>
+                                                   </ul>
+        </div>
+            </div>
+    <!-- 已报名用户 开始-->
+    <div class="bss_evDet_regUser pubPadding">
+            </div>
+    <!-- 活动地点 开始-->
+    <div class="bss_evDet_actAddress pubPadding" >
+        <div class="bss_comTit1">活动地点</div>
+					<div class="actAddress_noMap">
+				<ul class="row">
+					<li class="col-xs-12 col-sm-6">
+						<p class="act_tit"><i class="iconfont">&#xe61d;</i><strong>时间与地点</strong></p>
+						<div class="act_conBox">
+							<div class="act_con">
+								<p attr_tit="时间：">10/30 13:00&nbsp;-&nbsp;18:00</p>
+								<p attr_tit="地点：">北京市东城区北三环东路36号 北京金隅喜来登大酒店</p>
+							</div>
+						</div>
+					</li>
+					<li class="col-xs-12 col-sm-6">
+						<p class="act_tit"><i class="iconfont">&#xe61c;</i><strong>联系人</strong></p>
+						<div class="act_conBox">
+							<div class="act_con">
+								<p attr_tit="联系人：" class="contacts">吴女士</p>
+								<p attr_tit="电话："> 15704605650</p>
+								<p attr_tit="邮箱："> wutong@csdn.net</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+	    </div>
+    </div>
+    <script src="https://csdnimg.cn/release/bss/fe/e667c42/static/js/meeting/modules/bbs_slideLibrary.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/release/bss/fe/e667c42/static/js/meeting/modules/bss_regUser_move.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+           var map_height = $('.actdrress_model').css('height');
+//            console.log(map_height);
+            $('#container').css('height',map_height);
+        });
+        //活动日程，每天
+        $('.evDet_eventSch_tab .eventSch_tabTit p').on('click', function () {
+            var num = $(this).index();
+            $(this).addClass('tabTit_cur').siblings().removeClass('tabTit_cur');
+            $('.eventSch_tabCon .evDet_eventSch').eq(num).addClass('evDet_eventSchCur').siblings().removeClass('evDet_eventSchCur');
+        });
+    </script>
+<div class="scroollCover"></div>
+<ul class="scrolltop_bar">
+	<li class="bss_erweima"><a href="javascript:;"><i class="iconfont">&#xe6a3;</i></a>
+		<div class="erweima_box"><span></span>
+			<div class="erweima_com"><img src="https://csdnimg.cn/release/bss/fe/e667c42/images/meeting/erweima.jpg">
+				<p>扫一扫，关注最新活动<br/>微信号 CSDN会议</p>
+			</div>
+		</div>
+	</li>
+	<li class="scrollTop_btn"><a href="javascript:;"><i class="iconfont">&#xe605;</i></a></li>
+</ul>
+<script>
+	$(function(){
+		var scrolltopBar = (function(){
+			/* 返回顶部的显示/隐藏 */
+			$(document).scroll(function(){
+				var scrollH = $(document).scrollTop() ||  $(window).scrollTop();
+				scrollH = parseInt(scrollH);
+				$('.erweima_box').hide();
+				if(scrollH < 100){
+					$('.scrollTop_btn').fadeOut(50);
+					$('.scrolltop_bar').css('bottom','140px');
+				}else{
+					$('.scrolltop_bar').css('bottom','90px');
+					$('.scrollTop_btn').fadeIn(50);
+				};
+			});
+			/* 返回顶部 */
+			$('.scrollTop_btn').click(function(){
+				$('body,html,.all').animate({scrollTop:0},800);
+			});
+			/* 二维码 */
+			function erweima_hide(){
+				$('.erweima_box').fadeOut();
+			};
+			// 判断是否为移动端运行环境
+			if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+				if(window.location.href.indexOf("?mobile")<0){
+					try{
+						if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+							// 判断访问环境是 Android|webOS|iPhone|iPod|BlackBerry 则加载以下
+							$('.bss_erweima a').on('singleTap',function(){
+								$('.erweima_box').toggle();
+								$('.scroollCover').show();
+							});
+							$('.scroollCover').on('singleTap',function(){
+								$('.erweima_box').hide();
+								$(this).hide();
+							});
+						}
+						else if(/iPad/i.test(navigator.userAgent)){
+							// 判断访问环境是 iPad 则加载以下
+							$('.bss_erweima a').on('singleTap',function(){
+								$('.erweima_box').toggle();
+								$('.scroollCover').show();
+							});
+							$('.scroollCover').on('singleTap',function(){
+								$('.erweima_box').hide();
+								$(this).hide();
+							});
+						}
+						else{
+							// 判断访问环境是 其他移动设备 则加载以下
+							$('.bss_erweima a').on('singleTap',function(){
+								$('.erweima_box').toggle();
+								$('.scroollCover').show();
+							});
+							$('.scroollCover').on('singleTap',function(){
+								$('.erweima_box').hide();
+								$(this).hide();
+							});
+						}
+					}
+					catch(e){}
+				}
+			}else{
+				// 如果以上都不是，则加载以下(PC)
+				$('.bss_erweima a').hover(
+					function(){
+						$('.erweima_box').show();
+					},function(){
+						setTimeout(erweima_hide,300);
+					}
+				);
+			}
+
+
+		})(window.scrolltopBar || {})
+	})
+</script>
+<div class="footerM">京 ICP 证 070598 号 | Copyright
+    &copy;
+    1999-2016, CSDN.NET, All Rights Reserved
+</div>
+<script id="noticeScript" type="text/javascript" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" src="https://csdnimg.cn/rabbit/notev2/js/notify.js?9d86d94"></script>
+<script src="//csdnimg.cn/pubfooter/js/publib_footer-1.0.2.js"></script>
+<!--需要放在PUBLIC_FOOTER下面，否则地图不显示-->
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=CTYBZ-ZS4CG-ZX3QZ-ICKMK-FBIS7-3MFED"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var center = new qq.maps.LatLng(40.067188,116.249678);
+        var map = new qq.maps.Map(document.getElementById('container'), {
+            center: center,
+            zoom: 18
+        });
+        var marker = new qq.maps.Marker({
+            position: center,
+            map: map
+        });
+    }
+</script>
+<script src="https://csdnimg.cn/release/bss/fe/e667c42/static/js/meeting/modules/bss_main.js" type="text/javascript"></script>
+
+<!-- 活动统计代码 -->
+<div style="display: none;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_2921683'%3E%3C/span%3E%3Cscript src='//s19.cnzz.com/stat.php%3Fid%3D2921683%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<!-- BSS公共统计代码 -->
+<div style="display:none;"><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_5752922'%3E%3C/span%3E%3Cscript src='https://s17.cnzz.com/stat.php%3Fid%3D5752922%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></body>
+</html>

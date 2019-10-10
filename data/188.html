@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/MongoDBChina"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="report" content='{"pid":"blog"}'>
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"【MongoDBChina的博客】tech_mongodb"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>【MongoDBChina的博客】tech_mongodb - CSDN博客</title>
+                        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/column_pc-e8bf700b72.min.css" />
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/corporate_blog_list-bfb6369b66.min.css">     
+            
+    
+    
+<!--    自定义皮肤样式-->
+    
+    <script type="text/javascript">
+        var username = "MongoDBChina";
+        var blog_address = "https://blog.csdn.net/mongodbchina";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/MongoDBChina"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 收藏所需数据
+        var articleTitle = "MongoDBChina的博客";
+        var articleDesc = "CSDN博主 MongoDBChina的博客  主页提供丰富的内容介绍,包含博客等级、博主粉丝、积分、排名等内容,查找最新 MongoDBChina的博客 博文更新信息,请上CSDN博客频道.";
+        // 第四范式所需数据
+        var articleTitles = "【MongoDBChina的博客】tech_mongodb";
+        
+        var nickName = "MongoDB 数据库";
+        var isCorporate = true;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/mongodbchina/phoenix/comment";
+        var articleDetailUrl = "";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <!--js引用-->
+            <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.6/fixed-sidebar.js,report/1.0.6/report.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata company_blog" style='background-color: #f5f6f7'> 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging-e040f0c7c8.css">
+<link rel="stylesheet" href="https://g.csdnimg.cn/lib/cropper/3.1.6/cropper.css">
+<script src="https://g.csdnimg.cn/lib/cropper/3.1.6/cropper.js"></script>
+<header>
+	<div class="container d-flex clearfix" style="background-image: url(https://csdnimg.cn/release/phoenix/head.png)">
+		<div class="title-box">
+			<h1 class="title-blog">
+				<a href="https://blog.csdn.net/mongodbchina">MongoDBChina的博客</a>
+			</h1>
+			<p class="description oneline"></p>
+		</div>
+		<div class="opt-box d-flex justify-content-end">
+		                                		</div>
+        	</div>
+			<ul class="corporate-blog-navigation">
+							<li><a href="https://blog.csdn.net/MongoDBChina" target="_blank" rel="noopener">博客首页</a></li>
+							<li><a href="https://me.csdn.net/MongoDBChina" target="_blank" rel="noopener">关于我们</a></li>
+					</ul>
+	</header>
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+    <main>
+      <div class="filter-box d-flex align-items-center">
+      <form action="" id=seeOriginal>
+    <label class="chk-box" for="chkOriginal">
+      <input onchange="this.checked ? document.getElementById('seeOriginal').submit() : location.href = 'https://blog.csdn.net/MongoDBChina'" type="checkbox" name="t" value="1"  id="chkOriginal">只看原创</label></form>
+    <dl class="filter-sort-box d-flex align-items-center">
+    <dt>排序：</dt>
+    <dd><a href="javascript:void(0);" class="btn-filter-sort active" target="_self">默认</a></dd>
+    <dd><a href="https://blog.csdn.net/MongoDBChina?orderby=UpdateTime" class="btn-filter-sort " target="_self">按更新时间</a></dd>
+    <dd><a href="https://blog.csdn.net/MongoDBChina?orderby=ViewCount" class="btn-filter-sort " target="_self">按访问量</a></dd>
+    <dd><a class="btn btn-sm rss" href="https://blog.csdn.net/mongodbchina/rss/list">
+		<svg class="icon" aria-hidden="true">
+			<use xlink:href="#csdnc-rss"></use>
+		</svg>RSS订阅</a>
+    </dd>
+  </dl>
+</div>
+
+
+
+<div class="article-list">
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="94722744">
+    		<svg class="icon settop" aria-hidden="true">
+      <use xlink:href="#csdnc-settop"></use>
+    </svg>
+	    <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/94722744" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        17 Media数据迁移：从自管理MongoDB到MongoDB Atlas，用户体验与工作效率双提升      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/94722744" target="_blank">
+        随着网络技术的提升，视频直播已经成为了互联网的一种常态。因为视频直播最接近人类沟通方式，易于使用、交互能力强、体验最好，所以拥有庞大的用户群。巨大的用户需求加剧了直播平台之间的竞争，为了增强竞争力，吸引更多的用户，各大直播平台想方设法提升自身服务质量，不仅要不断推出新的业务形式，还要大力借助IT技...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-07-05 11:33:09</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">89</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="88865782">
+    		<svg class="icon settop" aria-hidden="true">
+      <use xlink:href="#csdnc-settop"></use>
+    </svg>
+	    <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/88865782" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        2019 MongoDB 中国用户大会， 6月5日，上海见！      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/88865782" target="_blank">
+        2019 MongoDB 中国用户大会即将走进上海！我们诚邀您参加此次MongoDB年度盛会，与构建MongoDB数据库、助力众多用户成功部署MongoDB的官方团队，共同探讨学习最热门的MongoDB技能，以及最前沿的app设计和性能管理等高阶技术。MongoDB全球及中国技术专家将携手行业典型...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-03-28 11:48:49</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">876</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98965044">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98965044" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB 用例 —— 物联网      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98965044" target="_blank">
+        启用传感器的物品正在释放以前无法想象的海量数据。从生产线到巡逻车，再到起搏器，新的盈利点不断涌现。然而，传感器数据的价值完全取决于数据的处理方式。利用&amp;nbsp;MongoDB， 您可以构建不同以往的应用程序，以使得传感器数据更有意义。物联网详解在物联网世界中，所有实物资产和设备互联互通并...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-09 16:15:09</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">1524</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98962426">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98962426" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB 用例 —— 移动终端      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98962426" target="_blank">
+        客户想在自己的智能手机上使用您的服务。他们期望您的服务每周都有改进。遗憾的是，使用关系型数据库管理系统很难进行持续迭代。MongoDB能够助力您构建可扩展至覆盖数百万用户的酷炫的移动应用。速度更快，成本更低。移动终端详解您的顾客在日常生活中离不开多种带屏幕的设备，包括智能手机和平板电脑。Mongo...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-09 15:41:54</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">65</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98962102">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98962102" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB CEO 兼总裁Dev Ittycheria: 文档即未来      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98962102" target="_blank">
+        关系型数据库并非为当今现代应用程序而设计，MongoDB的诞生则源于使用传统关系型数据库的挫败。在长达40年没有可替代数据库的尴尬后，我们开创了一种处理数据的全新方法——MongoDB文档模型及其相关的查询语言。由于MongoDB提供了一种截然不同的数据组织方式，在当时，很大部分是实验性的，对于将...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-09 15:40:25</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">51</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98961759">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98961759" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB CTO 兼联合创始人Eliot Horowitz: 文档无处不在      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98961759" target="_blank">
+        在MongoDB的引领下，大量新的文档型数据库在过去的十年里相继面世，传统数据库也都纷纷增加了文档功能。2017年，微软在 Cosmos 数据库(曾经被命名为“DocumentDB”)的基础上添加了MongoDB API&amp;nbsp; 层，最近亚马逊又推出了DocumentDB，在其 Aur...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-09 15:35:31</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">52</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98961407">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98961407" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB 用例 —— 单一视图      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98961407" target="_blank">
+        数据是公司的命脉。遗憾的是，如此重要的数据却散布在公司的多个地方，被锁定在孤岛系统中。大批公司纷纷尝试构建单一视图，但大多数都以失败告终。利用 MongoDB，您可以构建任何对象的单一视图。速度更快，成本更低。单一视图详解单一视图应用程序能将多个来源的数据集成到一个中央存储库，以创建任何对象的单一...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-09 15:27:18</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">75</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98961327">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98961327" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第一讲——多态模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98961327" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能在“利用模式进行构建”的系列课程中，我们将介绍MongoDB 中12种有效的常用模式设计方式。我们希望这一系列课程可以建立一套通用的方法和词汇表，以供大家在设计模式时使用。利用这些模式，大家可以采用“组件”的方式进行模式规...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-09 15:25:15</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">58</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98792162">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98792162" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第二讲——属性模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98792162" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能欢迎大家回来学习利用模式进行构建的系列课程。上一次，我们了解了多态模式，这种模式针对的情况是：某个集合中所有文档的结构均类似，但并不完全相同。在本篇博文中我们将了解属性模式。属性模式特别适合以下场合：我们有一些大文档，这些...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-07 22:37:23</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">158</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98792035">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98792035" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第八讲——近似值模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98792035" target="_blank">
+        在MongoDB&amp;nbsp;University学习更多关于MongoDB的知识和技能假设现在有一个相当规模的城市，大约有3.9万人。人口的确切数字是相当不稳定的，人们会搬入搬出、有婴儿会出生、有人会死亡。我们也许要花上整天的时间来得到每天确切的居民数量。但在大多数情况下，39,000这个...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-07 22:36:07</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">89</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98791879">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98791879" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第十一讲——文档版本控制模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98791879" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能数据库，例如MongoDB，非常擅长查询大量数据并进行频繁更新。然而，在大多数情况下，我们只针对数据的最新状态执行查询。那如果有些场景下我们需要查询数据的以前状态呢？如果我们需要一些文档的版本控制功能怎么办？这就是我们可以...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-07 22:34:39</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">98</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98791107">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98791107" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB 招贤纳士 | 揽IT良才，共筑美好前景      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98791107" target="_blank">
+        MongoDB数据库MongoDB官方微信公众号扫描关注，获取更多精彩内容长按二维码关注我们
+
+      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-07 22:27:13</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">56</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98584951">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98584951" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第三讲——桶模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98584951" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能欢迎回到MongoDB模式设计系列。上一次我们研究了属性模式，在本文中，我们将了解一下桶模式。桶模式在处理物联网（IOT）、实时分析或通用时间序列数据时特别有效。通过将数据放在一起，我们可以更容易地将数据组织成特定的组，提...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-06 08:46:19</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">53</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98584878">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98584878" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        MongoDB 安全终极指南——避免不当配置      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98584878" target="_blank">
+        国家互联网中心于2019年2月通报指出，由于MongoDB用户的不当配置，导致部分MongoDB用户存在信息泄露风险。而在《Forrester Wave™：2019 大数据 NoSQL综述》报告中，MongoDB荣获领导者称号，并在数据安全等21项评估标准中斩获最高分。这说明：MongoDB 本身...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-06 08:45:01</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">56</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98584730">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98584730" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        基准测试：要做就做到最好      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98584730" target="_blank">
+        在不知道如何运行某个数据库的情况下，请不要在该数据库上运行基准测试。本篇案例很好的解释了原因。EnterpriseDB赞助OnGres用MongoDB与PostgreSQL做基准测试时，在使用MongoDB过程中出现了很多基本错误。但如果应用几分钟的MongoDB最佳实践，就会避免这种错误，Mon...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-06 08:43:09</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">51</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98482079">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98482079" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第四讲——异常值模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98482079" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能到目前为止，在《利用模式进行构建》系列中，我们已经研究了多态模式、属性模式和桶模式。其中，尽管文档的模式略有不同，但从应用程序和查询的角度来看，文档的结构基本上是一致的。然而，如果情况并非如此会怎么样？当有数据不属于“正常...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-05 12:12:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">50</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98482063">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98482063" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第五讲——计算模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98482063" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能我们已经在使用模式构建系列研究了各种优化存储数据的方法。现在，我们从另一个角度来看看模式设计。通常，仅仅存储数据并使其可用还不够。当我们可以从数据中计算出值时，数据会变得有用的多。最新Amazon Alexa的总销售收入是...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-05 12:10:19</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">51</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98482049">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98482049" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第六讲——子集模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98482049" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能在多年前，第一代PC拥有高达256KB的RAM和两个5.25英寸的软盘驱动器。没有硬盘，因为在当时它们极为昂贵。这些限制导致在处理大量（对那时来说）数据时由于内存不足，必须在物理上交换软盘。如果当时有办法只把我经常使用的数...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-05 12:08:44</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">51</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98463232">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98463232" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第七讲——扩展引用模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98463232" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能贯穿整个《利用模式进行构建》，我希望你已经了解到一件事，即模式是什么样子取决于数据的访问方式。如果我们有许多相似的字段，属性模式可能是一个很好的选择。为了适配一小部分数据的访问会极大地改变我们的应用程序吗？也许异常值模式是...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-04 13:26:46</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">45</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="98462908">
+        <h4 class="">
+        <a href="https://blog.csdn.net/MongoDBChina/article/details/98462908" target="_blank">
+        <span class="article-type type-1 float-none">原创</span>        利用模式进行构建第九讲——树形模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/MongoDBChina/article/details/98462908" target="_blank">
+        在MongoDB University学习更多关于MongoDB的知识和技能到目前为止，我们讨论的许多设计模式都强调省去JOIN操作的时间是有好处的。那些会被一起访问的数据也应该存储在一起，即便导致了一些数据重复也是可以的。像扩展引用（Extended Reference）这样的设计模式就是一个很...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">
+        2019-08-04 13:23:19</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">61</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="pagination-box" id="pageBox"></div>
+</div>
+    </main>
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/MongoDBChina">
+              <img src="https://avatar.csdn.net/6/D/E/3_mongodbchina.jpg" class="avatar_pic" username = 'MongoDBChina'>
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/0.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-report-click='{"mod":"popu_379"}' username='MongoDBChina'>
+                <a href="https://blog.csdn.net/MongoDBChina"  class="" id="uid" title='MongoDB 数据库'>MongoDB 数据库</a>
+            </p>
+                          <p class="flag corporate">
+              <a href="https://blog.csdn.net/home/help.html#enterprise" target="_blank">
+                <svg t="1543215841753" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10781" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M512 1005.008L430.928 1024l-71.248-43.088-83.024-7.04-54.448-63.024-76.8-32.304-32.256-76.8-63.024-54.4-7.04-82.992L0 593.104 18.992 512 0 430.928l43.088-71.248 7.04-83.024 63.024-54.448 32.304-76.8 76.8-32.256 54.4-63.024 82.992-7.04L430.896 0 512 18.992 593.072 0l71.248 43.088 83.024 7.04 54.448 63.024 76.8 32.304 32.256 76.8 63.024 54.4 7.04 82.992L1024 430.896 1005.008 512 1024 593.072l-43.088 71.248-7.04 83.024-63.024 54.448-32.304 76.8-76.8 32.256-54.4 63.024-82.992 7.04L593.104 1024z" fill="#2E98FF" p-id="10782"></path><path d="M896 512c0 212.08-171.92 384-384 384S128 724.08 128 512 299.92 128 512 128s384 171.92 384 384z" fill="#FFFFFF" p-id="10783"></path><path d="M710.48 324.608l84.48 84.48-341.76 341.76-195.664-195.632 84.48-84.48 111.152 111.184z" fill="#2E98FF" p-id="10784"></path></svg>
+                企业博客
+                </a>
+                <span class="bubble hide hideAnimate">
+                CSDN认证企业博客
+                </span>
+              </p>
+                                        <p class="personal-home-page" style = 'right:-96px;'><a target="_blank"  href="https://me.csdn.net/MongoDBChina">TA的个人主页 ></a></p>
+                    </div>
+                <div class = 'profile-personal-letter'>
+            <a id = 'profile-personal-alink' href="" target="_blank" rel="noopener">私信</a>
+        </div>
+        <div class="opt-box d-flex  flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-report-click='{"mod":"popu_379"}'>
+                                    <a class="btn btn-sm btn-red-hollow attention" id="btnAttent" style = 'line-height:24px;padding:0;'>关注</a>
+                            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="34">
+                        <dt><a href="https://blog.csdn.net/mongodbchina?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/mongodbchina?t=1"><span class="count">34</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="60">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">60</span></dd>
+        </dl>
+        <dl class="text-center" title="13">
+            <dt>获赞</dt>
+            <dd><span class="count">13</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl class="visit-middle">
+            <dt>访问</dt>
+            <dd title="5180">
+                5180            </dd>
+        </dl>
+        <dl title="173068">
+            <dt>排名</dt>
+            <dd>17万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="持之以恒">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.png" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.png" alt="">
+                                   <p>持之以恒</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv4">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qixiebiaobing-4.png" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qixiebiaobing-4.png" alt="">
+                                   <p>勤写标兵Lv4</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布9篇以上（包括9篇）原创IT博文的用户。本勋章将于次周周三上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div id="asideCategory" class="aside-box">
+    <h3 class="aside-title">分类专栏</h3>
+    <div class="aside-content">
+        <ul>
+                            <li class="">
+                    <a class="clearfix"
+                       href="https://blog.csdn.net/mongodbchina/article/category/8836456">
+                                                    <img src="https://img-blog.csdnimg.cn/20190918140158853.png" alt="">
+                                                <span class="title oneline">tech</span>
+                                                    <span class="count float-right">30篇</span>
+                                            </a>
+                </li>
+                            <li class="">
+                    <a class="clearfix"
+                       href="https://blog.csdn.net/mongodbchina/article/category/8836457">
+                                                    <img src="https://img-blog.csdnimg.cn/2019092715111047.png" alt="">
+                                                <span class="title oneline">mongodb</span>
+                                                    <span class="count float-right">30篇</span>
+                                            </a>
+                </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/mongodbchina/article/month/2019/08">
+                    2019年8月                    <span class="count float-right">25篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/mongodbchina/article/month/2019/07">
+                    2019年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/mongodbchina/article/month/2019/04">
+                    2019年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/mongodbchina/article/month/2019/03">
+                    2019年3月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-report-view='{"mod":"popu_521"}'>
+							<li>
+
+					<a href="https://blog.csdn.net/MongoDBChina/article/details/98965044" >
+                                                MongoDB 用例 —— 物联网                    </a>
+					<p class="read">阅读数 <span>1523</span></p>
+				</li>
+							<li>
+
+					<a href="https://blog.csdn.net/MongoDBChina/article/details/88865782" >
+                                                2019 MongoDB 中国用户大会， 6月5日，上海见！                    </a>
+					<p class="read">阅读数 <span>875</span></p>
+				</li>
+							<li>
+
+					<a href="https://blog.csdn.net/MongoDBChina/article/details/98462535" >
+                                                释放数据潜能，开创新机无限——2019 MongoDB中国用户大会在上海成功举行                    </a>
+					<p class="read">阅读数 <span>436</span></p>
+				</li>
+							<li>
+
+					<a href="https://blog.csdn.net/MongoDBChina/article/details/94722386" >
+                                                MongoDB 4.2版本拥有分布式事务、字段级加密、更新版 Kubernetes Operator 等新功能                    </a>
+					<p class="read">阅读数 <span>205</span></p>
+				</li>
+							<li>
+
+					<a href="https://blog.csdn.net/MongoDBChina/article/details/98792162" >
+                                                利用模式进行构建第二讲——属性模式                    </a>
+					<p class="read">阅读数 <span>157</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask"></div>
+<div class="promptBox clearfix">
+    <div class="title clearfix bottom-dis-16">
+        <span class="float-left">提示</span>
+        <a class="float-right Boxclose">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-times"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="text">确定要删除当前文章？</div>
+    <div class="pro-btn float-right">
+        <a class="clickNo">取消</a>
+        <a class="clickYes">删除</a>
+    </div>
+</div>
+<script>
+    var currentPage = 1;
+    var baseUrl = 'https://blog.csdn.net/MongoDBChina/article/list' ;
+    var pageSize = 20 ;
+    var listTotal = 34 ;
+    var pageQueryStr = '?';
+    function getAllUrl(page) {
+        return baseUrl + "/" + page + pageQueryStr;
+    }
+</script>
+<script src="//g.csdnimg.cn/??login-box/1.0.7/login-box.js,login-box/1.0.7/login-auto.js?t=20190826163227"></script>
+
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging-3d3b805766.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/iconfont/csdnc-c439e66521.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-7b56adf643.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/list-7c51275791.min.js"></script>
+
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/rgbaster-97c434ff37.min.js" /></script>
+	<script type="text/javascript">
+		var RGBasterImg = 'https://csdnimg.cn/release/phoenix/head.png';
+		RGBasterImg = '//csdnimg.cn/release/phoenix/head.png';
+		RGBaster.colors(RGBasterImg, {
+			// 调色板大小，就是提取的样本，越大越精确，同时性能越差
+			paletteSize: 30,
+			// 颜色排除
+			exclude: [ 'rgb(255,255,255)', 'rgb(0,0,0)' ],
+			success: function(payload) {
+				var c = payload.dominant.match(/\d+/g);
+				var Color = `rgba(${c[0]},${c[1]},${c[2]},0.8)`;
+				var desfontColor,titfontColor;
+        
+				var  grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
+	      if (grayLevel >= 192) {
+	        // 若为浅色，把文字设置为黑色
+	        desfontColor = '#999';
+          titfontColor = '#333';
+	      } else {
+	        desfontColor = '#fff';
+          titfontColor = '#fff';
+          
+	      }
+				$('.title-box .description').css('color',desfontColor)
+				$('.title-box .title-blog a').css('color',titfontColor)
+			}})
+
+	</script>
+
+<script>
+    
+</script>
+</body>
+</html>

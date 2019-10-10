@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, user-scalable=no"><title>跟老男孩学 Linux 运维：Web 集群实战</title><meta name="description" content="GitChat 是一款基于微信平台的知识分享产品。通过这款产品我们希望改变IT知识的学习方式。"><meta name="robots" content="index,follow"><meta name="keywords" content="GitChat,机器学习,大数据,程序员,用户体验,软件开发,知识付费,技术分享"><meta name="baidu-site-verification" content="BRkuL6TTfM"><link href="/dist/site/gitbook/bundle1.css" rel="stylesheet"><script src="/dist/site/gitbook/js1.js"></script><script src="/dist/js/jquery.lazyload.min.js"></script><link href="/css/gitbook/common/common.css" rel="stylesheet"><script src="/dist/gitbook/js/common.js"></script><link rel="icon" type="image/png" href="https://images.gitbook.cn/FrfR1mB39xM-U6iSAmDCpxWVxvoa" sizes="16x16"><link rel="icon" type="image/png" href="https://images.gitbook.cn/FrfR1mB39xM-U6iSAmDCpxWVxvoa" sizes="32x32"></head><link href="/dist/site/gitchat/bundle2.css" rel="stylesheet"><link rel="stylesheet" href="/dist/gitchat/css/mazi.css"><link href="/dist/gitchat/css/gitbookGeekbookTemplate.css" rel="stylesheet"><link href="/css/gitbook/gitchatGeekBookDetail.css" rel="stylesheet"><link href="/dist/gitbook/css/couponList.css" rel="stylesheet"><link href="/dist/gitbook/css/followDialog.css" rel="stylesheet"><script src="/dist/site/gitchat/js1.js"></script><script src="/dist/gitchat/js/qrcode.min.js"></script><style></style><body style="background-color:#f5f5f5;"><link rel="stylesheet" href="/css/gitbook/topV6.css"><div id="header" class="headroom hidden-md hidden-lg top_box"><div style="float: left;-webkit-animation-name:none;animation-name:none;" class="container hidden-md hidden-lg hidden-sm"><ul id="gn-menu" class="gn-menu-main"><li class="gn-trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a><nav class="gn-menu-wrapper"><div class="gn-scroller"><ul style="border-bottom:0" class="gn-menu"><!--li.gn-search-item--><!--    input.gn-search(id='menuSearchInput' placeholder='文章搜索', type='search')--><!--    a.gn-icon.gn-icon-search--><!--        span Search--><li><a href="/" class="icon lnr-home">首 页</a></li><!--li--><!--    a.icon.lnr-home(style='font-weight:400', href='/gitchat/hot') 热门Chat--><li><a href="/gitchat/columns" class="icon lnr-rocket">专 栏</a></li><li><a href="/gitchat/series/list" class="icon lnr-diamond">专 题</a></li><li><a href="/gitchat/geekbooks" class="icon lnr-book">电子书</a></li><!--li--><!--    a.icon.lnr-book(style='font-weight:400',href='/gitchat/recruits')  人才--><li><a href="/books/5b398139328f856827673b50/index.html" class="icon lnr-earth">关于我们</a></li><li><a class="icon lnr-text-align-justify">活动分类</a><div class="activity_type clearfix"><a href="/gitchat/categories/58e84f875295227534aad506/1">前端</a><a href="/gitchat/categories/58e84f53ec8e9e7b34457809/2">人工智能</a><a href="/gitchat/categories/58e84f6bad952d6b3428af9a/3">架构</a><a href="/gitchat/categories/5953698a3d38293ecceacb89/4">区块链</a><a href="/gitchat/categories/58e84f1584c651693437f27c/5">职场</a><a href="/gitchat/categories/59c491948fee063dc3c447ab/6">编程语言</a><a href="/gitchat/categories/58e84f31ad952d6b3428af99/7">技术管理</a><a href="/gitchat/categories/58e84f7bec8e9e7b3445780d/8">大数据</a><a href="/gitchat/categories/591171a3e692d5280d8157b6/9">移动开发</a><a href="/gitchat/categories/58e84f2284c651693437f27d/10">产品与运营</a><a href="/gitchat/categories/58e84f425295227534aad502/11">测试</a><a href="/gitchat/categories/591f073981be962a981acf18/12">安全</a><a href="/gitchat/categories/5901bd477b61a76bc4016423/13">运维</a></div><div style="margin:0 auto;width:90%;margin-top: 180px;"></div></li></ul></div></nav></li></ul></div><div class="top_logo_m"><a href="/"><img src="https://images.gitbook.cn/FnzjNghzs_ktFPUKeLaFX38rbNsL"></a></div><div class="top_right"><a href="javascript:void(0) return false;" role="button" class="hidden-xs top_publish">开始创作</a><a id="loginBtn" href="javascript:void(0)" role="button" class="login_btn">登录 / 注册</a><!--if !isLogin--><!--    a#newChatBtn.hidden-xs.btn.btn-default(style='display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;\--><!--                                border: 1px solid #d1d1d1;-webkit-border-radius: 25px;margin-right: 10px;', href='javascript:void(0) return false;', role='button')--><!--        | 发布Chat--><!--else--></div></div><div class="hidden-xs hidden-sm top_box"><div style="margin:0 auto;max-width: 1160px;"><div class="top_logo"><a href="/"><img src="https://images.gitbook.cn/FpiEC96lBpgdvOotUvxrIsxY7756"></a></div><div class="top_tabs"><a href="/" class="tab_no_select home_tab">Chat</a><!--if(sortStr == 'hot')--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--                border-bottom: 4px solid #646464;text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/hot',style='color:#444444') 热门 Chat--><!--else--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--                text-align: center;font-size: 16px;color: #646464')--><!--        a(href='/gitchat/hot') 热门 Chat--><a href="/gitchat/columns" class="tab_no_select">专栏</a><a href="/gitchat/series/list" class="tab_no_select">专题   </a><a href="/gitchat/geekbooks" class="tab_select">电子书</a><!--if(sortStr == 'recruits')--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--        border-bottom: 4px solid #646464;text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/recruits',style='color:#444444') 人才--><!--else--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--        text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/recruits') 人才--><!--div#aboutusNav(style='display: inline-block;float: left;margin-left: 20px;width: 90px;height: 42px;margin-top: -29px;\--><!--        text-align: center;font-size: 16px;color: #646464')--><!--        a#aboutusLink(href='/aboutus') 关于我们--><!--div#contactUsNav(style='display: inline-block;float: left;margin-left: 20px;width: 90px;height: 42px;margin-top: -29px;\--><!--                text-align: center;font-size: 16px;color: #646464')--><!--    a#contactUsLink(data-toggle="modal" href="#contactUsModal") 联系客服--></div><div class="top_right"><a id="newChatBtn2" href="javascript:void(0) return false;" role="button" class="hidden-xs top_publish">开始创作</a><a id="loginBtn2" href="javascript:void(0)" role="button" class="login_btn">登录 / 注册</a><a id="loginBtn2" href="javascript:void(0)" role="button" class="message_tab"><img src="https://images.gitbook.cn/FhfizV-uno4XaCsFpZZ7GCi7hWyx"></a><div class="search_box small_search"><input id="rightTopSearchInput" type="search" placeholder="搜索"><img src="https://images.gitbook.cn/FjE2q1EynW2BnBwH1NgAGenNXl40" class="top_search_img"></div><div id="thumbClickMenuDIV"><div><ul><li><a href="/gitchat/ordered">已  购</a></li><li><a id="my_vip" href="javascript:void(0);">我的会员</a></li><li class="hidden-md hidden-lg hidden-sm"><a href="javascript:myArtAlert()">我的创作</a></li><li class="hidden-xs"><a href="/mazi/my/activity">我的创作</a></li><li class="hidden-xs"><a href="/gitchat/coupons">我的优惠券</a></li><!--if showRecruit--><!--    li.hidden-xs--><!--        a(href='/mazi/my/recruits') 我的招聘--><!--if showResume--><!--    li.hidden-xs--><!--        a(href='/mazi/resumes') 上传简历--><li><a href="/user">个人设置</a></li><li><a href="/customers/logout">退出登录</a></li></ul></div><s><i></i></s></div></div></div></div><div id="myArtsAlertModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 id="authorModalLabel" class="modal-title">提示</h4></div><div class="modal-body"><div style="text-align:center;padding-top:10px;">此功能目前只对PC端开放，请用PC访问网站 gitbook.cn</div></div><div style="margin-top: 20px;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">返回</button></div></div></div></div><div id="newChatModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 id="newChatLabel" style="text-align:center;" class="modal-title">微信扫码，发起Chat</h4></div><div class="modal-body"><div style="text-align:center;"><img src="https://images.gitbook.cn/new_chat_qr_code.jpg" style="width:250px;margin-top:-10px;"></div></div></div></div></div><div id="contactUsModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div style="text-align:center;" class="modal-header"><h4 id="followWeixinModalLabel" class="modal-title">微信扫描二维码联系客服</h4></div><div style="padding:0;" class="modal-body"><div style="text-align:center;padding-top:10px;"><img src="https://images.gitbook.cn/FrlpzkY_9jMjGMSgc4XQFrwy4xf3" style="margin:5px;width:172px;height:172px;"></div></div><div style="margin-top: 10px;text-align:center;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">关闭</button></div></div></div></div><div id="publishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><img data-dismiss="modal" aria-label="Close" src="https://images.gitbook.cn/FmvfihH2VOBiRj3ynta4yK_DvZM_" class="close"><div class="flex_view clearfix"><div class="helf_view bg_left"><div class="scope_title scope_blue">发布免费内容</div><ul><li>· 即时创作和发布文章</li><li>· 读者可免费阅读</li></ul><div id="freeChatBtn" class="chat_btn bg_blue">创作/发布文章</div></div><div class="line"></div><div class="helf_view bg_right"><div class="scope_title scope_orange">发布收费 Chat</div><ul><li>· 发布话题开启众筹</li><li>· 为你的文章收费</li><li>· 可选择与读者在微信群交流</li></ul><div id="payChatBtn" class="chat_btn bg_orange">发布话题</div></div></div></div></div></div><a id="telModalLink" role="button" data-toggle="modal" href="#telModal" style="display:none;"></a><link href="/dist/gitbook/css/modals.css" rel="stylesheet"><div id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="tel_title">设置密码</div><div class="tel_input_view"><input id="pwdInput-1" type="text" placeholder="请设置登录密码" maxlength="16"></div><div class="tel_input_view"><input id="pwdInput-2" type="text" placeholder="确认登录密码" maxlength="16"></div><div id="pwdSubmit" class="tel_btn">确定</div></div></div></div><div id="telModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="tel_title">绑定手机号</div><div class="tel_tip">根据相关法规要求，请完善您的信息</div><div class="tel_input_view"><input id="telInput" type="text" placeholder="手机号" maxlength="11"><button id="codeBtn" class="code_btn">获取验证码</button></div><div class="tel_input_view"><input id="codeInput" type="text" placeholder="验证码" maxlength="6"></div><div id="telSubmit" class="tel_btn">确定</div></div></div></div><a id="auditSuccessLink" role="button" data-toggle="modal" href="#auditSuccessModal"></a><div id="auditSuccessModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><img data-dismiss="modal" aria-label="Close" src="https://images.gitbook.cn/FmvfihH2VOBiRj3ynta4yK_DvZM_" class="as_close"><img src="https://images.gitbook.cn/Fk5dJI2l4uoORgulVV86kaHqJ9jS" class="as_img"><div class="as_tip">提交成功</div><div class="as_txt">平台会在 48 小时内通知您审核结果</div><a href="/mazi/my/activity" class="as_chat_button">查看我的创作</a><div class="as_bottom"><img src="https://images.gitbook.cn/FmtmUdg3yuMFRE_vO7vV6PvW-Iot" class="as_qrcode"><span class="as_tip_bottom">关注公众号<br>第一时间获得相关结果通知</span></div></div></div></div><a id="auditWrongLink" role="button" data-toggle="modal" href="#auditWrongModal"></a><div id="auditWrongModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><img src="https://images.gitbook.cn/FhPXnIoHYe2jzxy-3k0hpQT3dpoH" class="aw_img"><div class="aw_tip">提交审核失败</div><div class="aw_txt">请检查您的网络状态后再试一次</div><div class="aw_btn">重新提交</div></div></div></div><div class="mine_tip mine_tip_yes"><img src="https://images.gitbook.cn/FjeoT6Flh_RPDTwaJa3i4927CQMI"><span>保存成功</span></div><div class="mine_tip mine_tip_no"><img src="https://images.gitbook.cn/Fq0bYPvfhvhi_dHp9Hhr4h4rb6Q0" alt=""><span>保存失败，请重试</span></div><div class="mine_tip tip_submit"><img src="https://images.gitbook.cn/FjeoT6Flh_RPDTwaJa3i4927CQMI"><span>提交成功</span><script>// grab an element
+var myElement = document.getElementById("header");
+// construct an instance of Headroom, passing the element
+var headroom  = new Headroom(myElement);
+// initialise
+headroom.init();
+var isPublish = window.location.href.indexOf('new/gitchat/activity');
+var isWrite = window.location.href.indexOf('mazi/my/activity');
+var pointAjax = function(type){
+    if($('#tab_item_'+type).length == 0||$('#tab_item_'+type).is(':hidden')){
+        return;
+    }
+    $.ajax ({
+        url: '/notifications?type='+type,
+        type: "POST",
+        data: JSON.stringify({lastTime: ''}),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if(data.code == 0){
+                $('#tab_item_'+type).hide();
+            }
+        }
+    })
+}
+$(function(){
+    var isYearCard = "";
+    var isNormalCard = "";
+    var vipEndTime = "";
+    var msgView = $('#message_view');
+    if(isWrite != -1){
+        $('.top_write').css('color','#222');
+        $('.top_write>img').attr('src','https://images.gitbook.cn/Fkqd7_S5kjO79B7z30-z-raHzyF8')
+    }
+    if(isNormalCard == 'true'){
+        var vipObj = {
+            "cardImg": "https://images.gitbook.cn/Fts0XPWoZzTOhFWLuyg-GlswFlwB?imageslim",
+            "className": "normalClass",
+            "textColor": "#46669B",
+            "cardList": ["全场 Chat 免费订", "每月免费学习 2 门专栏", "全站文章和实录免费阅读", "进入上百位专家的读者圈，无限互动与追问"]
+        }
+    }else if(isYearCard=='true'){
+        var vipObj = {
+            "cardImg": "https://images.gitbook.cn/FvC7tICKSIS7XCR0Oftj41OhcpkN?imageslim",
+            "className":"yearClass",
+            "textColor": "#DDC492",
+            "cardList": ["全场 Chat 免费订", "全场专栏免费学", "全站文章和实录免费阅读", "每月免费领一本电子书", "进入上百位专家的读者圈，无限互动与追问"]
+        }
+    }
+    if(isYearCard=='true' || isNormalCard == 'true'){
+        var htmlString = '<div id="vipDialog" class="vip_model"><div class="vip_model_content"><img src="'+vipObj.cardImg+'" class="vip_img"><div class="'+vipObj.className+'">'+vipEndTime+' 到期</div><ul class="vip_list_ul"><li style="color:'+vipObj.textColor+'">会员权益</li>';
+        for(var hIndex = 0;hIndex<vipObj.cardList.length;hIndex++){
+            htmlString += '<li>'+vipObj.cardList[hIndex]+'</li>';
+        }
+        htmlString += '</ul><img src="https://images.gitbook.cn/FoZcXZPNXxknIpi0zhdlAuUCfkJR" class="vip_close"></div></div>';
+        $('body').append(htmlString);
+        $("#my_vip").click(function(){
+            $('#vipDialog').show();
+        })
+        $('.vip_model_content').click(function () {
+            return false;
+        })
+        $('#vipDialog,.vip_close').click(function () {
+            $('#vipDialog').hide();
+        })
+    }
+    $('.message_tab').click(function(){
+        if(msgView.is(':hidden')){
+            msgView.fadeIn();
+            $('span').remove('.red_point');
+            pointAjax(2);
+        }else{
+            msgView.fadeOut();
+        }
+        return false;
+    })
+    msgView.click(function(event){
+        event.stopPropagation();
+    })
+    $(document).click(function(){
+        msgView.fadeOut();
+    })
+    $('.tab_item').click(function(){
+        $('.tab_item').removeClass('msg_choose');
+        $(this).addClass('msg_choose');
+        if($(this).data('name')=='comment'){
+            $('.like_list,.msg_list').hide();
+            $('.comment_list').show();
+            $('.msg_more').attr('href','/notifications?type=comment');
+        }else if($(this).data('name')=='like'){
+            $('.comment_list,.msg_list').hide();
+            $('.like_list').show();
+            $('.msg_more').attr('href','/notifications?type=like');
+        }else{
+            $('.comment_list,.like_list').hide();
+            $('.msg_list').show();
+            $('.msg_more').attr('href','/notifications?type=navigation');
+        }
+    })
+})
+$('.top_search_img').on('click', function () {
+    var searchKey = $('#rightTopSearchInput').val();
+    if(searchKey != ''){
+        window.open("/articles?search=" + searchKey,"_blank");
+    }
+})
+$('#freeChatBtn').click(function(){
+    $('#publishModal').modal('hide')
+    $('.modal-backdrop').hide();
+    setTimeout(function(){
+        window.open('/new/gitchat/activity?type=free')
+    },200)
+})
+$('#payChatBtn').click(function(){
+    $('#publishModal').modal('hide')
+    $('.modal-backdrop').hide();
+    setTimeout(function(){
+        window.open('/new/gitchat/activity?type=crowdfunding')
+    },200)
+})
+//
+$('.top_write').hover(function(){
+    if(isWrite == -1){
+        $('.top_write>img').attr('src','https://images.gitbook.cn/Fkqd7_S5kjO79B7z30-z-raHzyF8')
+    }
+},function(){
+    if(isWrite == -1){
+        $('.top_write>img').attr('src','https://images.gitbook.cn/Fg_vm8snlWiYLraM7Xz7snFIJGk2')
+    }
+})
+$('.download_app').hover(function(){
+    $('#download_icon').attr('src','https://images.gitbook.cn/Fi89_kU1_tS-Sm9wAN3_8nBOSr2v');
+    $('.down_line').show();
+    $('#download_image').fadeIn()
+},function(){
+    $('#download_icon').attr('src','https://images.gitbook.cn/FtL6oL1rhSW8Zv-tzFqbOAQSJoSg')
+    $('.down_line').hide();
+    $('#download_image').fadeOut()
+})</script></div><script>var timeCount = 60;
+var msg_id;
+$(function(){
+    var codeBtn = $('#codeBtn');
+    var telSubmit = $('#telSubmit');
+    var pwdSubmit = $('#pwdSubmit');
+    var resCodeNum = '0000';
+    $('.as_chat_button').click(function(){
+        window.location.href='/mazi/my/activity'
+        return false
+    })
+    codeBtn.click(function(){
+        var telNum = $('#telInput').val().trim();
+        if(isPhoneNumber(telNum)){
+            codeBtn.attr('disabled','true');
+            codeBtn.text('('+(--timeCount)+'s)');
+            // 计时器
+            var timer = setInterval(function(){
+                if(timeCount == 0){
+                    clearInterval(timer);
+                    timeCount = 60;
+                    codeBtn.text('获取验证码');
+                    codeBtn.removeAttr('disabled');
+                }else{
+                    codeBtn.text('('+(--timeCount)+'s)');
+                }
+            }, 1000)
+            $.ajax({
+                url: "/sms/code",
+                type: "POST",
+                data: JSON.stringify({mobile:telNum}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data, status) {
+                    if (status == 'success' && data.code == 0) {
+                        msg_id = data.msg_id;
+                    } else {
+                        alert(data.message);
+                        clearInterval(timer);
+                        timeCount = 60;
+                        codeBtn.text('获取验证码');
+                        codeBtn.removeAttr('disabled');
+                    }
+                }
+            })
+            
+        } else{
+            alert('请输入正确的手机号！');
+        }
+    })
+    telSubmit.click(function(){
+        var telNum = $('#telInput').val().trim();
+        var codeNum = $('#codeInput').val().trim();
+        if(isPhoneNumber(telNum)){
+            $.ajax({
+                url: "/sms/check/code",
+                type: "POST",
+                data: JSON.stringify({msg_id: msg_id, code: codeNum}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data, status) {
+                    if (status == 'success' && data.code == 0) {
+                        mineYes()
+                        closeTelModal();
+                        if(window.location.href.indexOf('v2/editor') == -1 && window.location.href.indexOf('new/gitchat/activity') == -1){
+                            setTimeout(function(){
+                                window.location.reload();
+                            },1000)
+                        }
+                    } else {
+                        mineNo()
+                    }
+                }
+            })
+        }else{
+            alert('请输入正确的手机号！');
+        }
+    })
+    pwdSubmit.click(function(){
+        var password = $('#pwdInput-1').val().trim();
+        var repassword = $('#pwdInput-2').val().trim();
+        if(password==""||repassword==""){
+            alert('请输入密码！');
+        } else if($('#pwdInput-1').val() != $('#pwdInput-2').val()){
+            alert('两次密码不一致！');
+        } else{
+            alert('设置密码成功！');
+        }
+    })
+    $('.aw_btn').click(function(){
+        closeErrModal();
+    })
+    function isPhoneNumber(tel) {
+        var reg =/^0?1[3|4|5|6|7|8|9][0-9]\d{8}$/;
+        return reg.test(tel);
+    }
+})</script><div style="width:100%;max-width:1160px;margin:0 auto;overflow:hidden;"><div style="background-color:#f5f5f5;width:100%;max-width: 800px;display: inline-block;float: left;"><div class="mazi-activity-container item-container gbook_view"><div style="max-width: 750px;background-color:#fff;" class="geekBookDetail"><div class="topWrapper"><img src="https://images.gitbook.cn/FtxqX5NMcY3A-R7w25XF49R4PDPR?imageView2/2/h/500" width="100%" class="banner"><div class="columnTitle">跟老男孩学 Linux 运维：Web 集群实战</div></div><div class="hidden-sm hidden-xs"><div style="line-height: 30px;" class="titleInfo"><span class="authorTitle">老男孩</span></div><div class="columnInfo"><div class="subscriptionNum"><div class="text">25839</div><div class="subTextWrapper"><span class="subText">已阅读</span></div></div><div class="topicTotalWords"><div class="text">70</div><div class="subText">万字</div></div></div><div class="separate2"></div></div><div class="hidden-lg hidden-md"><a id="column_title"><div class="titleInfo"><span class="authorTitle">老男孩</span><span class="column_buy_num">242人已阅读</span></div></a><div class="column_detail_tabs"><div id="column_tab_info"><div class="column_tab_inner column_tab_select">详情</div></div><div id="column_tab_catalog"><div class="column_tab_inner">目录</div></div></div></div><div id="column_infos"><div class="columnDesc"><h4><strong>内容简介</strong></h4>
+<p>本书针对中小规模网站集群的搭建、部署、优化进行了详细讲解，全书可分为三大部分，其中第一部分讲的是 Linux 相关的基础且重要的知识，第二部分针对当下流行的 Web 环境架构（LNMP）的搭建及企业级 Web 优化等进行了讲解，第三部分讲的是 Web 集群后端的数据存储和 Web 集群前端的负载均衡高可用。如果你是一名经验丰富的资深 Linux 用户，可以直接阅读第二部分内容。但如果你是一名 Linux 初学者，请一定从第1章的基础知识开始学习。</p>
+<p>第一部分为基础篇（第1~4章），简单地介绍了 Linux 的历史沿革、Linux 的企业级选型、学习环境的搭建、Linux 的企业级系统安装、Linux 系统的基础优化，以及远程连接 Linux 及客户端 SSH 的设置等，最后比较深入地讲解了 HTTP 协议和 www 服务相关知识，为读者搭建企业级 Web 集群环境做好了准备。</p>
+<p>第二部分为 Web 服务篇（第5~8章），着重讲解了 Linux、Nginx、MySQL、PHP（LNMP）等当下流行的 Web 环境架构的搭建、开源 blog 网站产品的安装部署、Web 优化等知识。为读者搭建企业级完整的网站 Web 集群架构做好了准备。</p>
+<p>第三部分为集群篇（第9~15章），着重讲解了 Web 集群后端的 MySQL 数据库、Web 集群共享存储 NFS、Nginx 反向代理负载均衡、Keepalived 高可用、Memcached 缓存及 session 共享、Nagios 企业级监控等技术实战，最后为读者规划了一个中等规模的网站集群架构解决方案。</p>
+<h4><strong>作者简介</strong></h4>
+<p>老男孩，北京老男孩 IT 教育创始人，拥有十多年一线大规模网站集群运维架构实战经验及教学培训经验，曾主导了从几台到上千台规模集群运维架构的扩展，运维架构实战知识体系全面，擅长大规模集群架构部署调优、虚拟化、云计算、大数据、MySQL 数据库等技术，是 IT 界资深的 Linux 集群架构实战专家。</p>
+<p>老男孩也是国内 NLP 心理学运维思想体系创始人，将心理学运维思想大量应用于教学培训实践，取得了显著效果，所教学生平均就业工资及后期发展速度连续多年在国内 Linux 同行业中处于领先地位。</p>
+<p>授课注重理论结合企业真实场景，认真负责，思维严谨，重视对学生的运维思想、规范、习惯、总结、表达沟通等能力的培养，累计受益人员数万！</p></div><div class="descContainer"><div class="columnNotice"><h4><strong>极客书购买须知</strong></h4>
+<ol>
+<li>本产品为《跟老男孩学 Linux 运维：Web 集群实战》一书电子版全本内容，共计 70 万字。</li>
+<li>付费购买用户、会员用户可享受文章永久阅读权限。</li>
+<li>本产品为虚拟产品，一经付费概不退款，敬请谅解。</li>
+<li>本产品内容授权自北京华章图文信息有限公司。 </li>
+<li>极客书同时可在 <a href="http://gitbook.cn/">http://gitbook.cn/</a> 购买与阅读。</li>
+</ol></div></div></div><div id="column_catalog" class="hidden-lg hidden-md"><div style="padding:0" class="columnTopics"><div onclick="clickOnTopic('5c3ec438e2c8641fee086972','5c3e9545be5fed35a4e4e351','true','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_try">【试读】</div><div class="titleText"> 前言 </div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FqqM8MDXIWA6SNrE5MV-QExqxjCH" class="column_book_icon"></div><div onclick="clickOnTopic('5c3ec438e2c8641fee086973','5c3e9545be5fed35a4e4e351','true','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_try">【试读】</div><div class="titleText"> 第1章 Linux 系统介绍与环境搭建准备（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FqqM8MDXIWA6SNrE5MV-QExqxjCH" class="column_book_icon"></div><div onclick="clickOnTopic('5c3ec439e2c8641fee086982','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第1章 Linux 系统介绍与环境搭建准备（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec439e2c8641fee08698d','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第1章 Linux 系统介绍与环境搭建准备（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec439e2c8641fee086996','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第2章 企业级 CentOS 6.6 操作系统安装（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43ae2c8641fee0869a4','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第2章 企业级 CentOS 6.6 操作系统安装（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43ae2c8641fee0869ac','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第3章 CentOS 6.6 连接管理及优化（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43be2c8641fee0869bf','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第3章 CentOS 6.6 连接管理及优化（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43be2c8641fee0869ca','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第3章 CentOS 6.6 连接管理及优化（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43ce2c8641fee0869da','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第4章 Web 服务基础（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43ce2c8641fee0869e5','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第4章 Web 服务基础（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43de2c8641fee0869f6','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第4章 Web 服务基础（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43de2c8641fee086a01','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第5章 Nginx Web 服务应用（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43ee2c8641fee086a12','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第5章 Nginx Web 服务应用（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43ee2c8641fee086a1e','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第5章 Nginx Web 服务应用（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43fe2c8641fee086a32','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第6章 企业级 LNMP 环境应用实践（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec43fe2c8641fee086a3c','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第6章 企业级 LNMP 环境应用实践（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec440e2c8641fee086a47','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第6章 企业级 LNMP 环境应用实践（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec440e2c8641fee086a5b','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第7章 PHP 服务缓存加速优化实战（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec441e2c8641fee086a6d','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第7章 PHP 服务缓存加速优化实战（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec441e2c8641fee086a78','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第8章 企业级 Nginx Web 服务优化实战（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec442e2c8641fee086a8a','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第8章 企业级 Nginx Web 服务优化实战（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec443e2c8641fee086a99','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第8章 企业级 Nginx Web 服务优化实战（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec444e2c8641fee086aa6','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第9章 MySQL 数据库企业级应用实践（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec444e2c8641fee086abb','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第9章 MySQL 数据库企业级应用实践（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec444e2c8641fee086ac2','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第9章 MySQL 数据库企业级应用实践（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c414aafbe5fed35a4e555fe','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第10章　企业级 NFS 网络文件共享服务（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec446e2c8641fee086adf','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第10章　企业级 NFS 网络文件共享服务（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec446e2c8641fee086aeb','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第10章　企业级 NFS 网络文件共享服务（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec447e2c8641fee086afa','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第11章 Nginx 反向代理与负载均衡应用实践（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec447e2c8641fee086b02','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第11章 Nginx 反向代理与负载均衡应用实践（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec447e2c8641fee086b0a','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第11章 Nginx 反向代理与负载均衡应用实践（下） </div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec448e2c8641fee086b13','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第12章 Keepalived 高可用集群应用实践（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec448e2c8641fee086b1c','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第12章 Keepalived 高可用集群应用实践（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec448e2c8641fee086b24','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第12章 Keepalived 高可用集群应用实践（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec449e2c8641fee086b2e','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第13章 企业级 Memcached 服务应用实践（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec449e2c8641fee086b3e','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第13章 企业级 Memcached 服务应用实践（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec44ae2c8641fee086b47','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第13章 企业级 Memcached 服务应用实践（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec44ae2c8641fee086b56','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第14章 企业级监控 Nagios 实践（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec44be2c8641fee086b60','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第14章 企业级监控 Nagios 实践（中）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec44be2c8641fee086b69','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText">第14章 企业级监控 Nagios 实践（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec44ce2c8641fee086b74','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第15章 企业级网站集群搭建综合解决方案（上）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div><div onclick="clickOnTopic('5c3ec44ce2c8641fee086b7b','5c3e9545be5fed35a4e4e351','false','undefined')" class="topicTitle"><div class="titleTextWrapper"><div><div class="column_catalog_middle"><div class="column_not_finish">内容更新中...</div><div class="titleText"> 第15章 企业级网站集群搭建综合解决方案（下）</div></div><div class="topicPercent">阅读NaN%</div></div></div><img src="https://images.gitbook.cn/FkLeZJsnWZgrtwy0J6HZzQNkBUms" class="column_lock_icon"></div></div></div><div class="gbook_recommend_head"><span class="gbook_recommend_title"> 推荐电子书</span><a href="/gitchat/geekbooks"><span class="gbook_more">查看更多电子书</span></a></div><div class="geekbookDetailRecommend"><style>.geekbookImg{
+    position:relative;
+}
+.act_img{
+    position: absolute;
+    width: 54px;
+    top: 0;
+    left: 0;
+}
+.act_view{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(66,112,131,0.5);
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}</style><a href="/gitchat/geekbook/5d47c32fcb702a087ef8b742" target="_blank" class="geekbook"><div class="geekbookImg"><img src="https://images.gitbook.cn/FsT8aQY-mPVDbWQEmhbAjts7NEeb?imageView2/2/h/500" width="90" class="subBanner"></div><div class="geekbookInfo"><div class="geekbookTitle">极简数学</div><div class="authorTitle">Chris Waring</div><div class="geekbook-tags gbook_list_tag_box"><div style="" onclick="clickOnTag(event,'数学')" class="geekbook-tag gbook_list_tags">数学</div></div><span class="geekbookPrice">¥27</span><span class="gbook_list_words">7.6 万字</span></div></a><a href="/gitchat/geekbook/5d254e584ae8695e26ceb3aa" target="_blank" class="geekbook"><div class="geekbookImg"><img src="https://images.gitbook.cn/Ft9RN0u6upYTlLA6cNiofHrPHeEh?imageView2/2/h/500" width="90" class="subBanner"></div><div class="geekbookInfo"><div class="geekbookTitle">拉新：快速实现用户增长</div><div class="authorTitle">加布里埃尔·温伯格</div><div class="geekbook-tags gbook_list_tag_box"><div style="" onclick="clickOnTag(event,'增长')" class="geekbook-tag gbook_list_tags">增长</div><div style="" onclick="clickOnTag(event,'用户增长')" class="geekbook-tag gbook_list_tags">用户增长</div><div style="" onclick="clickOnTag(event,'拉新')" class="geekbook-tag gbook_list_tags">拉新</div><div style="" onclick="clickOnTag(event,'运营')" class="geekbook-tag gbook_list_tags">运营</div></div><span class="geekbookPrice">¥35.4</span><span class="gbook_list_words">14.7 万字</span></div></a><a href="/gitchat/geekbook/5d2316c7f9f9ec2b090ccbeb" target="_blank" class="geekbook"><div class="geekbookImg"><img src="https://images.gitbook.cn/Fut9DBrTMEZksvyA9iM2ZlIMnff4?imageView2/2/h/500" width="90" class="subBanner"></div><div class="geekbookInfo"><div class="geekbookTitle">10堂极简概率课</div><div class="authorTitle">Persi Diaconis 等</div><div class="geekbook-tags gbook_list_tag_box"><div style="" onclick="clickOnTag(event,'概率')" class="geekbook-tag gbook_list_tags">概率</div></div><span class="geekbookPrice">¥29.4</span><span class="gbook_list_words">200 万字</span></div></a><a href="/gitchat/geekbook/5cff169ece53ed3f49fbde74" target="_blank" class="geekbook"><div class="geekbookImg"><img src="https://images.gitbook.cn/FlgX_fikeRez8FjyWW3cYK_nPlEa?imageView2/2/h/500" width="90" class="subBanner"></div><div class="geekbookInfo"><div class="geekbookTitle">产品游戏化：让你的产品像游戏一样，打造用户上瘾模型</div><div class="authorTitle">Amy Jo Kim</div><div class="geekbook-tags gbook_list_tag_box"><div style="color:red" onclick="clickOnTag(event,'特价')" class="geekbook-tag gbook_list_tags">特价</div><div style="" onclick="clickOnTag(event,'产品')" class="geekbook-tag gbook_list_tags">产品</div><div style="" onclick="clickOnTag(event,'创新')" class="geekbook-tag gbook_list_tags">创新</div><div style="" onclick="clickOnTag(event,'设计')" class="geekbook-tag gbook_list_tags">设计</div><div style="" onclick="clickOnTag(event,'创业')" class="geekbook-tag gbook_list_tags">创业</div></div><span class="geekbookPrice"><span style="color: red">限时 ¥24.99</span><span class="gbook_list_price">¥40.8</span></span><span class="gbook_list_words">15 万字</span></div></a><a href="/gitchat/geekbook/5ceb6edd85af0252aab1dd4a" target="_blank" class="geekbook"><div class="geekbookImg"><img src="https://images.gitbook.cn/FrWLg8ZKRa5lbxR5R6v-cPTFnfO-?imageView2/2/h/500" width="90" class="subBanner"></div><div class="geekbookInfo"><div class="geekbookTitle">变量：看见中国社会小趋势【2019开年大书】</div><div class="authorTitle">何帆 </div><div class="geekbook-tags gbook_list_tag_box"><div style="color:red" onclick="clickOnTag(event,'特价')" class="geekbook-tag gbook_list_tags">特价</div><div style="" onclick="clickOnTag(event,'文化')" class="geekbook-tag gbook_list_tags">文化</div></div><span class="geekbookPrice"><span style="color: red">限时 ¥19.99</span><span class="gbook_list_price">¥39</span></span><span class="gbook_list_words">17 万字</span></div></a></div><div class="back_btns hidden-lg hidden-md"><a href="/gitchat/geekbooks" class="back_other_btn">其他电子书</a><a href="/" class="back_home_btn">返回首页</a></div><div class="hidden-lg hidden-md"><div style="max-width: 750px;" class="payColumnAndReadWrapper"><div class="payColumnAndRead"><a id="tryRead2Login" class="readColumn">免费试读</a><div id="tryBuy2Login" class="payColumn">立即购买 ¥49</div></div></div></div></div></div></div><link href="/css/gitbook/catalogRight.css" rel="stylesheet"><div id="indexRight" style="float:left;margin-top:90px;z-index: -1;padding-left: 10px;overflow:hidden;" class="hidden-xs hidden-sm"><div class="catalog_content"><div><div class="catalog_btns"><div id="tryBuy2Login_cata" class="catalog_buy_btn_2">立即购买¥49</div><a onclick="clickOnTopic('5c3ec438e2c8641fee086972','5c3e9545be5fed35a4e4e351','true')" class="catalog_try_btn_2">免费试读   </a></div></div><div class="catalog_view"><div class="catalog_items_head"><div class="catalog_left"><span class="catalog_left_line"></span></div><a href="" class="lesson_intro truncate">跟老男孩学 Linux 运维：Web 集群实战</a></div><a onclick="clickOnTopic('5c3ec438e2c8641fee086972','5c3e9545be5fed35a4e4e351','true','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">1</span></div><div title=" 前言 " class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 前言 </span></div></a><a onclick="clickOnTopic('5c3ec438e2c8641fee086973','5c3e9545be5fed35a4e4e351','true','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">2</span></div><div title=" 第1章 Linux 系统介绍与环境搭建准备（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第1章 Linux 系统介绍与环境搭建准备（上）</span></div></a><a onclick="clickOnTopic('5c3ec439e2c8641fee086982','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">3</span></div><div title="第1章 Linux 系统介绍与环境搭建准备（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第1章 Linux 系统介绍与环境搭建准备（中）</span></div></a><a onclick="clickOnTopic('5c3ec439e2c8641fee08698d','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">4</span></div><div title="第1章 Linux 系统介绍与环境搭建准备（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第1章 Linux 系统介绍与环境搭建准备（下）</span></div></a><a onclick="clickOnTopic('5c3ec439e2c8641fee086996','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">5</span></div><div title=" 第2章 企业级 CentOS 6.6 操作系统安装（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第2章 企业级 CentOS 6.6 操作系统安装（上）</span></div></a><a onclick="clickOnTopic('5c3ec43ae2c8641fee0869a4','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">6</span></div><div title="第2章 企业级 CentOS 6.6 操作系统安装（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第2章 企业级 CentOS 6.6 操作系统安装（下）</span></div></a><a onclick="clickOnTopic('5c3ec43ae2c8641fee0869ac','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">7</span></div><div title=" 第3章 CentOS 6.6 连接管理及优化（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第3章 CentOS 6.6 连接管理及优化（上）</span></div></a><a onclick="clickOnTopic('5c3ec43be2c8641fee0869bf','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">8</span></div><div title=" 第3章 CentOS 6.6 连接管理及优化（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第3章 CentOS 6.6 连接管理及优化（中）</span></div></a><a onclick="clickOnTopic('5c3ec43be2c8641fee0869ca','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">9</span></div><div title="第3章 CentOS 6.6 连接管理及优化（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第3章 CentOS 6.6 连接管理及优化（下）</span></div></a><a onclick="clickOnTopic('5c3ec43ce2c8641fee0869da','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">10</span></div><div title=" 第4章 Web 服务基础（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第4章 Web 服务基础（上）</span></div></a><a onclick="clickOnTopic('5c3ec43ce2c8641fee0869e5','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">11</span></div><div title=" 第4章 Web 服务基础（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第4章 Web 服务基础（中）</span></div></a><a onclick="clickOnTopic('5c3ec43de2c8641fee0869f6','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">12</span></div><div title=" 第4章 Web 服务基础（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第4章 Web 服务基础（下）</span></div></a><a onclick="clickOnTopic('5c3ec43de2c8641fee086a01','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">13</span></div><div title=" 第5章 Nginx Web 服务应用（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第5章 Nginx Web 服务应用（上）</span></div></a><a onclick="clickOnTopic('5c3ec43ee2c8641fee086a12','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">14</span></div><div title=" 第5章 Nginx Web 服务应用（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第5章 Nginx Web 服务应用（中）</span></div></a><a onclick="clickOnTopic('5c3ec43ee2c8641fee086a1e','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">15</span></div><div title="第5章 Nginx Web 服务应用（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第5章 Nginx Web 服务应用（下）</span></div></a><a onclick="clickOnTopic('5c3ec43fe2c8641fee086a32','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">16</span></div><div title=" 第6章 企业级 LNMP 环境应用实践（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第6章 企业级 LNMP 环境应用实践（上）</span></div></a><a onclick="clickOnTopic('5c3ec43fe2c8641fee086a3c','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">17</span></div><div title="第6章 企业级 LNMP 环境应用实践（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第6章 企业级 LNMP 环境应用实践（中）</span></div></a><a onclick="clickOnTopic('5c3ec440e2c8641fee086a47','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">18</span></div><div title="第6章 企业级 LNMP 环境应用实践（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第6章 企业级 LNMP 环境应用实践（下）</span></div></a><a onclick="clickOnTopic('5c3ec440e2c8641fee086a5b','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">19</span></div><div title=" 第7章 PHP 服务缓存加速优化实战（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第7章 PHP 服务缓存加速优化实战（上）</span></div></a><a onclick="clickOnTopic('5c3ec441e2c8641fee086a6d','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">20</span></div><div title="第7章 PHP 服务缓存加速优化实战（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第7章 PHP 服务缓存加速优化实战（下）</span></div></a><a onclick="clickOnTopic('5c3ec441e2c8641fee086a78','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">21</span></div><div title=" 第8章 企业级 Nginx Web 服务优化实战（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第8章 企业级 Nginx Web 服务优化实战（上）</span></div></a><a onclick="clickOnTopic('5c3ec442e2c8641fee086a8a','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">22</span></div><div title="第8章 企业级 Nginx Web 服务优化实战（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第8章 企业级 Nginx Web 服务优化实战（中）</span></div></a><a onclick="clickOnTopic('5c3ec443e2c8641fee086a99','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">23</span></div><div title="第8章 企业级 Nginx Web 服务优化实战（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第8章 企业级 Nginx Web 服务优化实战（下）</span></div></a><a onclick="clickOnTopic('5c3ec444e2c8641fee086aa6','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">24</span></div><div title=" 第9章 MySQL 数据库企业级应用实践（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第9章 MySQL 数据库企业级应用实践（上）</span></div></a><a onclick="clickOnTopic('5c3ec444e2c8641fee086abb','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">25</span></div><div title="第9章 MySQL 数据库企业级应用实践（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第9章 MySQL 数据库企业级应用实践（中）</span></div></a><a onclick="clickOnTopic('5c3ec444e2c8641fee086ac2','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">26</span></div><div title="第9章 MySQL 数据库企业级应用实践（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第9章 MySQL 数据库企业级应用实践（下）</span></div></a><a onclick="clickOnTopic('5c414aafbe5fed35a4e555fe','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">27</span></div><div title="第10章　企业级 NFS 网络文件共享服务（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第10章　企业级 NFS 网络文件共享服务（上）</span></div></a><a onclick="clickOnTopic('5c3ec446e2c8641fee086adf','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">28</span></div><div title="第10章　企业级 NFS 网络文件共享服务（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第10章　企业级 NFS 网络文件共享服务（中）</span></div></a><a onclick="clickOnTopic('5c3ec446e2c8641fee086aeb','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">29</span></div><div title="第10章　企业级 NFS 网络文件共享服务（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第10章　企业级 NFS 网络文件共享服务（下）</span></div></a><a onclick="clickOnTopic('5c3ec447e2c8641fee086afa','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">30</span></div><div title=" 第11章 Nginx 反向代理与负载均衡应用实践（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第11章 Nginx 反向代理与负载均衡应用实践（上）</span></div></a><a onclick="clickOnTopic('5c3ec447e2c8641fee086b02','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">31</span></div><div title="第11章 Nginx 反向代理与负载均衡应用实践（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第11章 Nginx 反向代理与负载均衡应用实践（中）</span></div></a><a onclick="clickOnTopic('5c3ec447e2c8641fee086b0a','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">32</span></div><div title="第11章 Nginx 反向代理与负载均衡应用实践（下） " class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第11章 Nginx 反向代理与负载均衡应用实践（下） </span></div></a><a onclick="clickOnTopic('5c3ec448e2c8641fee086b13','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">33</span></div><div title=" 第12章 Keepalived 高可用集群应用实践（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第12章 Keepalived 高可用集群应用实践（上）</span></div></a><a onclick="clickOnTopic('5c3ec448e2c8641fee086b1c','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">34</span></div><div title=" 第12章 Keepalived 高可用集群应用实践（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第12章 Keepalived 高可用集群应用实践（中）</span></div></a><a onclick="clickOnTopic('5c3ec448e2c8641fee086b24','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">35</span></div><div title="第12章 Keepalived 高可用集群应用实践（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第12章 Keepalived 高可用集群应用实践（下）</span></div></a><a onclick="clickOnTopic('5c3ec449e2c8641fee086b2e','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">36</span></div><div title=" 第13章 企业级 Memcached 服务应用实践（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第13章 企业级 Memcached 服务应用实践（上）</span></div></a><a onclick="clickOnTopic('5c3ec449e2c8641fee086b3e','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">37</span></div><div title=" 第13章 企业级 Memcached 服务应用实践（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第13章 企业级 Memcached 服务应用实践（中）</span></div></a><a onclick="clickOnTopic('5c3ec44ae2c8641fee086b47','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">38</span></div><div title=" 第13章 企业级 Memcached 服务应用实践（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第13章 企业级 Memcached 服务应用实践（下）</span></div></a><a onclick="clickOnTopic('5c3ec44ae2c8641fee086b56','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">39</span></div><div title=" 第14章 企业级监控 Nagios 实践（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第14章 企业级监控 Nagios 实践（上）</span></div></a><a onclick="clickOnTopic('5c3ec44be2c8641fee086b60','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">40</span></div><div title="第14章 企业级监控 Nagios 实践（中）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第14章 企业级监控 Nagios 实践（中）</span></div></a><a onclick="clickOnTopic('5c3ec44be2c8641fee086b69','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">41</span></div><div title="第14章 企业级监控 Nagios 实践（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content">第14章 企业级监控 Nagios 实践（下）</span></div></a><a onclick="clickOnTopic('5c3ec44ce2c8641fee086b74','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">42</span></div><div title=" 第15章 企业级网站集群搭建综合解决方案（上）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第15章 企业级网站集群搭建综合解决方案（上）</span></div></a><a onclick="clickOnTopic('5c3ec44ce2c8641fee086b7b','5c3e9545be5fed35a4e4e351','false','undefined')" class="catalog_items_item"><div class="catalog_item_left"><span class="catalog_num">43</span></div><div title=" 第15章 企业级网站集群搭建综合解决方案（下）" class="catalog_item_txt"><span class="catalog_item_content not_finish">[写作中]</span><span class="catalog_item_content"> 第15章 企业级网站集群搭建综合解决方案（下）</span></div></a></div></div><script>$(function(){
+   //设置目录可滚动区域高度
+   $('.catalog_view').css('max-height',$(window).height()-250+'px');
+   $('.catalog_items_item:nth-child(2) .catalog_item_left').addClass('bg_red');
+   $('.catalog_items_item:last-child .catalog_item_left').addClass('bg_white');
+})</script></div></div><script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script><div class="fat-nav"><div class="fat-nav__wrapper"><div style="margin: 0 auto;font-size: 30px;color: #ffffff;text-align: center;margin-top: 60px;"><img style="width: 50px;" src="https://images.gitbook.cn/FnzjNghzs_ktFPUKeLaFX38rbNsL"></div><div id="loginInputDiv" style="width: 100%"><div style="text-align:center;color: #ffffff;margin-top:10px;font-size: 16px;letter-spacing: 2px;">微信扫描登录</div><div id="login_container" style="text-align: center;height: 250px;"></div></div></div></div><div id="authorModal" style="margin-top: 60px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 id="authorModalLabel" class="modal-title">帐号设置</h4></div><div class="modal-body"><div style="display:inline-block;width: 100%;"><div style="display:inline;float:left;padding: 20px 0 0 10px;min-width: 280px;"><div id="authorThumb" style="display: inline-block;float:left;width: 100px;height: 100px;border: 1px solid #cccccc;margin-right: 20px;                        line-height: 100px;font-size: 30px;text-align: center;-webkit-border-radius: 50px;margin-bottom:20px;">头像</div><form id="thumbUploadForm" style="margin-top:25px;" method="post" action="/upload/book/image" enctype="multipart/form-data"><div style="display: inline" class="form-group"><a href="javascript:;" class="file">选择头像<input id="thumbInputFile" type="file" name="tmpFile" onchange="javascript:submitThumbForm()"></a><p style="font-size:12px;" class="help-block">最佳分辨率：200*200像素</p></div></form></div><!--if customerAccountStatus == 'onlymail'--><!--    div.hidden-xs(style='display:inline;float:right;width:50%;height: 220px;text-align: center;')--><!--        span 绑 定 微 信 帐 号--><!--        div#bandweixin(style='height: 220px;overflow: hidden;')--><!--    script.--><!--        if (!(/MicroMessenger/i).test(window.navigator.userAgent)) {--><!--            var state = encodeURI(window.location.href);--><!--            $.ajax ({--><!--                url: "/weixin/bind/weixin/qr",--><!--                type: "POST",--><!--                dataType: "json",--><!--                contentType: "application/json; charset=utf-8",--><!--                success: function(data,status){--><!--                    if(data.code == 0){--><!--                        var obj = new WxLogin({--><!--                            id:"bandweixin",--><!--                            appid: data.appId,--><!--                            scope: data.scope,--><!--                            redirect_uri: data.redirectUrl,--><!--                            state: state,--><!--                            style: "black",--><!--                            href: "https%3A%2F%2Foabbwo5lj.qnssl.com%2FweixinLoginQr2.css"--><!--                            });--><!--                    }--><!--                }--><!--            });--><!--        }--></div><div style="display:inline-block;width:100%;border-top:1px dashed #f5f5f5;height:20px;"></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">昵   称:</div><div style="margin-left:70px;"><input id="authorName" style="margin-bottom: 10px;" type="text" placeholder="用户昵称" value="" class="form-control"></div></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">微信号:</div><div style="margin-left:70px;"><input id="weixinAccount" style="margin-bottom: 10px;" type="text" placeholder="不填写微信号就不能发布Chat活动哦^_^" value="" class="form-control"></div></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">头   衔:</div><div style="margin-left:70px;"><input id="authorTitle" style="margin-bottom: 10px;" type="text" placeholder="用户头衔" value="" class="form-control"></div></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">背景介绍:</div><div style="margin-left:70px;"><textarea id="authorBackground" style="margin-bottom: 10px;" rows="3" placeholder="用户背景简介" class="form-control"></textarea><input id="hideCustomerThumbImage" style="display:none"></div></div><div style="font-size: 25px;line-height: 35px;"></div><div id="thumbUploadingAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-info">正在上传头像，请稍等......</div><div id="updatingAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-info">正在更新，请稍等......</div><div id="emailCheckAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-danger">邮件地址格式不正确，请重新填写</div><div id="dupEmailAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-danger">此邮件地址已经被其他用户使用</div></div><div style="margin-top: 20px;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">取消</button><button id="authorSubmitBtn" type="button" data-dismiss="modal" class="btn btn-primary">保存</button></div></div></div></div><script>if (!(/MicroMessenger/i).test(window.navigator.userAgent)) {
+    var state = encodeURI(window.location.href);
+    $.ajax ({
+            url: "/weixin/login/qr",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function(data,status){
+                if(data.code == 0){
+                    console.log(data)
+                    var obj = new WxLogin({
+                              id:"login_container",
+                              appid: data.appId,
+                              scope: data.scope,
+                              redirect_uri: data.redirectUrl,
+                              state: state,
+                              style: "white",
+                              href: "https%3A%2F%2Foabbwo5lj.qnssl.com%2FweixinLoginQr.css"
+                            });
+                    console.log(obj)        
+                }
+            }
+    });
+}</script><script src="/dist/js/jquery.fatNav.js"></script><script>new gnMenu( document.getElementById( 'gn-menu' ) );</script></body><script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><div id="showTipsModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 style="text-align:center;" class="modal-title">提 示</h4></div><div style="padding:10px 20px 5px 20px;line-height:30px;" class="modal-body"><div style="text-align:center;">购买电子书，即可阅读文章！</div></div><div style="margin-top: 10px;text-align:center;" class="modal-footer"><div data-dismiss="modal" class="btn btn-primary">知道了</div></div></div></div></div><div id="payMethodModal" style="margin-top: 150px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 id="payMethodModalLabel" style="text-align:center;" class="modal-title"> <div class="modal-main-title">微信扫码支付</div><span style="color:#9B9B9B" class="modal-sub-title">应支付</span><span style="color:#FF700A" class="modal-sub-title">￥49</span></h4></div><div style="padding:10px;line-height:30px;text-align: center;" class="modal-body"><div>登录后，扫码支付</div><button style="line-height: 25px;min-width:180px;height:40px;font-size:16px;background-color:#1169ac;color:#fff" onclick="pcLogin()" class="btn">登录</button></div><div style="margin-top: 10px;text-align:center;" class="modal-footer"><button type="button" onclick="window.location.reload()" style="background-color: #FF700A;color:white;border:none" class="btn btn-default">支付完成            </button></div></div></div></div><div id="marketingQr" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 id="marketingQrModalLabel" style="text-align:center;font-size:14px;weight:300;" class="modal-title">请先关注 GitChat 以接收服务通知</h4></div><div style="padding:0;" class="modal-body"><div id="marketingQrDefaultImg" style="display:none;text-align:center;padding-top:10px;"><img src="https://images.gitbook.cn/weixinqrcode.png" style="width:200px;height:200px;"></div><div id="marketingQrImg" style="text-align:center;padding-top:10px;"></div></div><div style="margin-top: 10px;text-align:center;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">关闭                        </button></div></div></div></div><div id="showVIPBuyModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 style="text-align:center;" class="modal-title">提 示</h4></div><div style="padding:10px 20px 5px 20px;line-height:30px;" class="modal-body"><div id="showVIPBuyText" style="text-align:center;"></div></div><div style="margin-top: 10px;text-align:center;" class="modal-footer"><div data-dismiss="modal" onclick="showPayModal()" class="btn btn_modal">点击购买¥49</div></div></div></div></div><div class="order_dialog"><div class="dialog_content"><div class="dialog_title"><span class="dialog_title_txt">关注提示</span><span class="dialog_close">×</span></div><img src="https://images.gitbook.cn/FugaAUCJPglWvm7ZO6Vldhc6Iq6h" class="dialog_code"><div class="dialog_text">扫码关注公众号，获得电子书免费/特价消息！</div></div></div><script>$.ajax ({
+    url: "/weixin/signature",
+    type: "POST",
+    data: JSON.stringify({url:window.location.href}),
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    success: function(data,status){
+        if(data.code == 0){
+            wx.config({
+            debug: false,
+            appId: 'wx7ba47eadabd9ddde',
+            timestamp: data.timestamp,
+            nonceStr: data.nonce,
+            signature: data.sha1,
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone','chooseWXPay']
+            });
+            wx.ready(function(){
+                //alert('config check successfully.');
+                wx.onMenuShareTimeline({
+                title: '', // 分享标题
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType:'', // activity, article, author, others
+                            shareItemId:'',
+                            shareToken:'',
+                            shareChanel:'weixinTimeline',
+                            shareItemUrl:window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareAppMessage({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType: '', // activity, article, author, others
+                            shareItemId: '',
+                            shareToken: '',
+                            shareChanel: 'weixinMessage',
+                            shareItemUrl: window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareQQ({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType: '', // activity, article, author, others
+                            shareItemId: '',
+                            shareToken: '',
+                            shareChanel: 'qq',
+                            shareItemUrl: window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareWeibo({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareQZone({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType: '', // activity, article, author, others
+                            shareItemId: '',
+                            shareToken: '',
+                            shareChanel: 'QZone',
+                            shareItemUrl: window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+            });
+            wx.error(function (res) {
+            });
+        }
+    }
+});</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-96766334-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+var userId = '';
+if(userId && userId != '' && userId != 'do_not_exist'){
+    gtag('set', {'user_id': userId});
+}
+gtag('config', 'UA-96766334-1');
+var gEvent = ''
+if (gEvent && gEvent != '') {
+    gtag('event', gEvent);
+}</script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?5667c6d502e51ebd8bd9e9be6790fb5d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><script>(function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><script>var loginStatus = 'false';
+var mobileNum = '';
+function showTips() {
+    $('#showTipsModal').modal('show');
+}
+$(function(){
+    if(window.location.href.indexOf('tag=2')!=-1){
+        $('#column_tab_catalog').trigger('click');
+    }
+    if(loginStatus&&loginStatus!='false'){
+        var showFollow = '';
+        if(showFollow && showFollow == 'true'){
+            $('.order_dialog').fadeIn();
+        }
+    }
+})
+$('.dialog_close').click(function(){
+    $('.order_dialog').fadeOut();
+});
+$('#column_tab_info').click(function(){
+    $('#column_infos').show();
+    $('#column_catalog').hide();
+    $('#column_tab_catalog .column_tab_inner').removeClass('column_tab_select');
+    $('#column_tab_info .column_tab_inner').addClass('column_tab_select');
+
+})
+$('#column_tab_catalog').click(function(){
+    $('#column_catalog').show();
+    $('#column_infos').hide();
+    $('#column_tab_catalog .column_tab_inner').addClass('column_tab_select');
+    $('#column_tab_info .column_tab_inner').removeClass('column_tab_select');
+})
+function showloginDiv() {
+    $('#hamburger').show();
+    $('#loginInputDiv').show();
+    $('#loginSubmittedDiv').hide();
+    $('#mailAddressInvalidDiv').hide();
+    fatNav.toggleNav();
+}
+function clickOnTopic(id, geekbookId, isFreeRead, finish) {
+    if (finish === 'false') return;
+    var hasSubscription = $('#hasSubscription').length
+    if (hasSubscription || isFreeRead === 'true') {
+        window.location.href = '/gitchat/geekbook/' + geekbookId + '/topic/' + id;
+    } else {
+        $('#showTipsModal').modal('show');
+    }
+
+}
+function showPayModal() {
+    if(mobileNum != 'undefined'){
+        var coupons = document.getElementById('coupons')
+        if (coupons) {
+            var data = JSON.parse($('#coupons').attr('product'));
+            var price = data.price;
+            var geekbookId = data.geekbookId;
+            var isNewCustomer = data.isNewCustomer;
+            initGeekbookParams({price, geekbookId, isNewCustomer});
+            clickOnCoupon(0);
+            $('#coupons').show();
+        } else {
+            $('#payMethodModal').modal('show');
+        }
+    }else{
+        showTelModal()
+    }
+}
+function showChapter(index) {
+    var className = $('#arrow_' + index ).attr("class")
+    if (className.indexOf("foldArrow") != -1) {
+        // $('#channel_demo' + index).show()
+        $('#channel_demo' + index).css("display", "block").animate(400);
+        $('#arrow_' + index ).removeClass("foldArrow");
+        $('#arrow_' + index ).animate({  borderSpacing: 180 }, {
+            step: function(now,fx) {
+            $(this).css('-webkit-transform','rotate('+now+'deg)'); 
+            $(this).css('-moz-transform','rotate('+now+'deg)');
+            $(this).css('transform','rotate('+now+'deg)');
+            },
+            duration:'slow'
+        },'linear');
+    } else {
+        $('#channel_demo' + index).css("display", "none");
+        $('#arrow_' + index ).addClass("foldArrow");
+        $('#arrow_' + index ).animate({  borderSpacing: 0 }, {
+            step: function(now,fx) {
+            $(this).css('-webkit-transform','rotate('+now+'deg)'); 
+            $(this).css('-moz-transform','rotate('+now+'deg)');
+            $(this).css('transform','rotate('+now+'deg)');
+            },
+            duration:'slow'
+        },'linear');
+    }
+}</script></html>
