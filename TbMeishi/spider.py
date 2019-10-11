@@ -45,19 +45,19 @@ def search():
 	except TimeoutException:
 		return search()
 
-# def next_page(page_number):
-# 	#处理翻页的操作
-# 	#页面最下方翻页地方输入页码的框出来没有
-# 	try:
-# 		input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#mainsrp-pager > div > div > div > ul > li.item.active > span')))
-# 		submit = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#J_waterfallPagination > div > div > a.pageConfirm')))
-# 		input.clear()
-# 		input.send_keys(page_number)
-# 		submit.click()
-# 		wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '#J_waterfallPagination > div > div > span.page-cur'), str(page_number)))
-# 	except TimeoutException:
-# 		next_page(page_number)
-#
+def next_page(page_number):
+	#处理翻页的操作
+	#页面最下方翻页地方输入页码的框出来没有
+	try:
+		input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#mainsrp-pager > div > div > div > ul > li.item.active > span')))
+		submit = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#J_waterfallPagination > div > div > a.pageConfirm')))
+		input.clear()
+		input.send_keys(page_number)
+		submit.click()
+		wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '#J_waterfallPagination > div > div > span.page-cur'), str(page_number)))
+	except TimeoutException:
+		next_page(page_number)
+
 def get_products():
  	#解析详情列表
 	wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#mainsrp-itemlist .items .item')))#看看页面加载出来没有
